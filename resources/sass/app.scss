@@ -1,14 +1,120 @@
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900');
 
-// Variables
-@import 'variables';
+/**
+ * This injects Tailwind's base styles, which is a combination of
+ * Normalize.css and some additional base styles.
+ *
+ * You can see the styles here:
+ * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/preflight";
+ */
+@tailwind preflight;
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+/**
+ * This injects any component classes registered by plugins.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/components";
+ */
+@tailwind components;
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+/**
+ * Here you would add any of your custom component classes; stuff that you'd
+ * want loaded *before* the utilities so that the utilities could still
+ * override them.
+ *
+ * Example:
+ *
+ * .btn { ... }
+ * .form-input { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "components/buttons";
+ * @import "components/forms";
+ */
+
+/**
+ * This injects all of Tailwind's utility classes, generated based on your
+ * config file.
+ *
+ * If using `postcss-import`, use this import instead:
+ *
+ * @import "tailwindcss/utilities";
+ */
+@tailwind utilities;
+
+/**
+ * Here you would add any custom utilities you need that don't come out of the
+ * box with Tailwind.
+ *
+ * Example :
+ *
+ * .bg-pattern-graph-paper { ... }
+ * .skew-45 { ... }
+ *
+ * Or if using a preprocessor or `postcss-import`:
+ *
+ * @import "utilities/background-patterns";
+ * @import "utilities/skew-transforms";
+ */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat';
+    font-weight: 900;
 }
+
+.x-list-label li {
+    @apply .inline-block .my-1 .p-1 .px-2 .rounded-lg .bg-green .text-white;
+}
+
+.x-project {
+    @apply .block .m-4 .p-3 .bg-grey-lightest .rounded-lg .no-underline .text-black;
+    @apply .border-2 .border-grey-lighter;
+}
+.x-project h3 {
+    @apply .block .text-2xl;
+}
+.x-project p {
+    @apply .my-2 .block .text-xl;
+}
+.x-project img {
+    @apply .block .rounded;
+}
+
+.x-input {
+    @apply .p-2 .text-xl .border-4 .bg-white .rounded-lg;
+}
+.x-input:focus {
+    @apply .outline-none;
+    @apply .border-green;
+}
+
+.x-button {
+    @apply .p-2 .text-xl .border-4 .bg-grey-light .rounded-lg;
+}
+.x-button:active {
+    @apply .bg-green;
+}
+.x-button:focus {
+    @apply .outline-none;
+    @apply .border-green;
+}
+
+
+
+
+
+
+
+
+
+
+

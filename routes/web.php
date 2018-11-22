@@ -11,20 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'pages.index');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 // URL shortener (must be at bottom of web.php)
 Route::resource('links', 'LinkController');
 Route::get('{url}', 'LinkController@show');
-// Route::get('urls/create', 'UrlController@create');
-// Route::get('urls/{url}/edit', 'UrlController@edit');
-// Route::post('urls', 'UrlController@store');
-// Route::put('urls/{url}', 'UrlController@update');
-
-// test

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Link;
 use Illuminate\Http\Request;
 
 class LinkController extends Controller
@@ -13,6 +14,7 @@ class LinkController extends Controller
      */
     public function index()
     {
+        return view('links.index', ['links' => Link::all()]);
     }
 
     /**
@@ -34,6 +36,25 @@ class LinkController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'name' => 'nullable|max:255|not_in:links,name',
+            'url'  => 'required|url|max:2083',
+        ]);
+
+        if (! isset($validatedData['name'])) {
+            $exists = true;
+            $name = str_random(3);
+            while ($exists) {
+                $name = str_random(3);
+                $exists = Link::whereName($name)->first();
+            }
+
+            $validatedData['name'] = $name;
+        }
+
+        $link = Link::create($validatedData);
+
+        return redirect('/links')->with('success', 'Link created!');
     }
 
     /**
@@ -43,8 +64,15 @@ class LinkController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($name)
     {
+        if ($link = Link::whereName($name)->first()) {
+            $link->hit();
+
+            return redirect($link->url);
+        } else {
+            abort(404);
+        }
     }
 
     /**
@@ -56,6 +84,7 @@ class LinkController extends Controller
      */
     public function edit($id)
     {
+        return view('links.edit');
     }
 
     /**
