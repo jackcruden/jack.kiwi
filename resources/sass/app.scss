@@ -90,11 +90,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .x-input {
-    @apply .p-2 .text-xl .border-4 .bg-white .rounded-lg;
+    @apply .w-full .p-2 .text-xl .border-4 .bg-white .rounded-lg;
 }
 .x-input:focus {
     @apply .outline-none;
     @apply .border-green;
+}
+textarea.x-input {
+    @apply .block;
 }
 
 .x-button {

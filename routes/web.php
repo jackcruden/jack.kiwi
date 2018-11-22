@@ -15,6 +15,8 @@ Route::view('/', 'pages.index');
 
 Auth::routes();
 
+Route::view('morsel', 'pages.morsel');
+
 // URL shortener (must be at bottom of web.php)
 Route::resource('links', 'LinkController');
 Route::get('{url}', 'LinkController@show');
