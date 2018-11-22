@@ -1,7 +1,7 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:900');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500,900');
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
 /**
  * This injects Tailwind's base styles, which is a combination of
@@ -65,6 +65,11 @@
  * @import "utilities/background-patterns";
  * @import "utilities/skew-transforms";
  */
+
+body {
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat';
