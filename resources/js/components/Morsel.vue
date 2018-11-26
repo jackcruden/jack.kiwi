@@ -48,6 +48,8 @@
 </template>
 
 <script>
+    import webAudioTouchUnlock from 'web-audio-touch-unlock'
+
     export default {
         props: [''],
 
@@ -89,7 +91,20 @@
                 let count = 1 - this.speed
 
                 if (first) {
-                    this.soundContext = new window.AudioContext()
+                    this.soundContext = new (window.AudioContext || window.webkitAudioContext)()
+
+                    // Fix iOS audio
+                    webAudioTouchUnlock(this.soundContext)
+                    .then(function (unlocked) {
+                        if (unlocked) {
+
+                        } else {
+
+                        }
+                    }, function (reason) {
+                        console.log(reason)
+                    })
+
                     this.sound = this.soundContext.createOscillator()
                     this.sound.connect(this.soundContext.destination)
 

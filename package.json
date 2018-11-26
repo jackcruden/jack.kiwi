@@ -19,5 +19,8 @@
         "popper.js": "^1.12",
         "tailwindcss": "^0.7.2",
         "vue": "^2.5.17"
+    },
+    "dependencies": {
+        "web-audio-touch-unlock": "^1.0.1"
     }
 }
