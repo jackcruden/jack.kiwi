@@ -8,11 +8,16 @@ class Link extends Model
 {
     protected $fillable = ['name', 'url', 'hits'];
 
+    protected $appends = ['link'];
+
+    public function getLinkAttribute()
+    {
+        return config('app.url').'/'.$this->name;
+    }
+
     public function hit()
     {
         $this->update(['hits' => $this->hits + 1]);
-        // $this->hits = $this->hits + 1;
-        // $this->save();
 
         return $this->hits;
     }
