@@ -13,24 +13,26 @@
 
             <div class="text-xl">
                 <ul class="list-reset x-list-label font-mono">
-                    <li>php</li>
-                    <li>javascript</li>
-                    <li>html</li>
-                    <li>css</li>
-                    <li>databases</li>
-                    <li>mysql</li>
-                    <li>sqlite</li>
-                    <li>laravel</li>
-                    <li>vuejs</li>
-                    <li>raspberry pi</li>
-                    <li>linux</li>
-                    <li>bash</li>
-                    <li>design</li>
+                    @foreach(App\Tag::all() as $tag)
+                        <li>
+                            <a href="/tags/{{ $tag->slug }}" class="text-white hover:text-white">
+                                {{ $tag->name }}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>
 
         <div class="flex-1 h-screen overflow-y-scroll">
+            @foreach(App\Post::published()->get() as $post)
+                <a href="/blog/{{ $post->slug }}" class="x-project">
+                    <p>{{ $post->title }}</p>
+                </a>
+            @endforeach
+        </div>
+
+        {{-- <div class="flex-1 h-screen overflow-y-scroll">
             <a href="/snippin" class="x-project">
                 <h3>Snippin</h3>
                 <p>A paste bin but more casual.</p>
@@ -51,6 +53,6 @@
                 <p>WeRoster is a whole thing.</p>
                 <img src="https://placekitten.com/500/200">
             </a>
-        </div>
+        </div> --}}
     </div>
 @endsection
