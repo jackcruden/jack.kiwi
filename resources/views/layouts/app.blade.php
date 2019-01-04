@@ -52,22 +52,6 @@
                     </li>
                     <li class="w-full items-center pl-4 pr-2">
                         <div class="relative">
-                            {{-- <input v-model="search" type="text" placeholder="Search&hellip;" class="p-2 border rounded-lg text-sm">
-                            <div class="absolute mt-1 pin-r bg-white rounded-lg border" style="width: 300px;">
-                                <ul class="list-reset p-2">
-                                    <li class="p-2 border-b">
-                                        <a href="#">New Year, New Blog</a>
-                                    </li>
-                                    <li class="p-2 border-b">
-                                        <a href="#">New Year, New Blog</a>
-                                    </li>
-                                    <li class="p-2 border-b">
-                                        <a href="#">New Year, New Blog</a>
-                                    </li>
-                                    <li class="p-2">Search by Algolia</li>
-                                </ul>
-                            </div> --}}
-
                             <ais-index
                                 app-id="ZX7KWEFAEQ"
                                 api-key="0485e1f4466829a42b7c31ee225e7e16"
