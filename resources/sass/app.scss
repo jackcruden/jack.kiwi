@@ -82,7 +82,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .x-project {
-    @apply .block .m-4 .p-3 .bg-grey-lightest .rounded-lg .no-underline .text-black;
+    @apply .block .my-4 .mr-4 .p-3 .bg-grey-lightest .rounded-lg .no-underline .text-black;
     @apply .border-2 .border-grey-lighter;
 }
 .x-project h3 {
@@ -127,16 +127,22 @@ a {
 
 .x-navigation {
     @apply .list-reset .flex .justify-end .items-center;
-    li a {
-        @apply .block .border-b-2 .border-transparent .py-2 .px-4 .text-center;
+    & > li > a {
+        @apply .block .border-b-2 .border-transparent .py-4 .px-4 .text-center;
     }
-    li a.active {
+    & > li > a.active {
         @apply .border-b-2 .border-blue-dark;
     }
 }
 
-
-
+.x-post {
+    h1, h2, h3, h4, h5, h6 {
+        @apply .mb-3;
+    }
+    p {
+        @apply .mb-2 .leading-normal .text-lg;
+    }
+}
 
 
 

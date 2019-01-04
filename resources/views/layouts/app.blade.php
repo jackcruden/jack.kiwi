@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Jack.Kiwi</title>
+    <title>jack.kiwi</title>
 
     <!-- Scripts -->
     <script src="{{ mix('/js/app.js') }}" defer></script>
@@ -22,10 +22,10 @@
 </head>
 <body>
     <div id="app">
-        <div class="flex p-2 border-b">
-            <div class="flex-1">
+        <div class="flex border-b">
+            <div class="p-2 flex-1">
                 <div class="mb-1">jack.kiwi</div>
-                <div class="text-grey-darker">Jack's website.</div>
+                <div class="text-xs text-grey-darker">Jack Cruden's portfolio website.</div>
             </div>
 
             <nav class="flex justify-end items-center">
@@ -50,8 +50,64 @@
                             Me
                         </a>
                     </li>
-                    <li class="pl-4">
-                        <input type="text" placeholder="Search&hellip;" class="p-2 border rounded-lg text-sm">
+                    <li class="w-full items-center pl-4 pr-2">
+                        <div class="relative">
+                            {{-- <input v-model="search" type="text" placeholder="Search&hellip;" class="p-2 border rounded-lg text-sm">
+                            <div class="absolute mt-1 pin-r bg-white rounded-lg border" style="width: 300px;">
+                                <ul class="list-reset p-2">
+                                    <li class="p-2 border-b">
+                                        <a href="#">New Year, New Blog</a>
+                                    </li>
+                                    <li class="p-2 border-b">
+                                        <a href="#">New Year, New Blog</a>
+                                    </li>
+                                    <li class="p-2 border-b">
+                                        <a href="#">New Year, New Blog</a>
+                                    </li>
+                                    <li class="p-2">Search by Algolia</li>
+                                </ul>
+                            </div> --}}
+
+                            <ais-index
+                                app-id="ZX7KWEFAEQ"
+                                api-key="0485e1f4466829a42b7c31ee225e7e16"
+                                index-name="posts"
+                                :auto-search="false"
+                            >
+                                <ais-input placeholder="Search&hellip;" class="p-2 border rounded-lg text-sm"></ais-input>
+
+                                <ais-results inline-template>
+                                    <div v-show="searchStore.query.length > 0" class="absolute mt-1 pin-r bg-white rounded-lg border" style="width: 300px;">
+                                        <ul class="list-reset p-2">
+                                            <li v-for="result in results" class="p-2 border-b">
+                                                <a :href="'/blog/' + result.slug">
+                                                    <ais-highlight :result="result" attribute-name="title"></ais-highlight>
+                                                </a>
+                                            </li>
+                                            <li class="pt-2 pr-2 text-right">
+                                                <a href="https://algolia.com" target="_blank">
+                                                    <img src="/images/algolia.svg" class="h-4">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ais-results>
+                                <ais-no-results>
+                                    <div class="absolute mt-1 pin-r bg-white rounded-lg border" style="width: 300px;">
+                                        <ul class="list-reset p-2">
+                                            <li class="p-2 border-b">
+                                                No posts found.
+                                            </li>
+                                            <li class="pt-2 pr-2 text-right">
+                                                <a href="https://algolia.com" target="_blank">
+                                                    <img src="/images/algolia.svg" class="h-4">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </ais-no-results>
+                             </ais-index>
+                        </div>
                     </li>
                 </ul>
             </nav>

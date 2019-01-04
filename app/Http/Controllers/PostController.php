@@ -26,38 +26,6 @@ class PostController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $validatedData = $this->validate([
-            'title'        => 'required|max:120',
-            'slug'         => 'nullable',
-            'content'      => 'required',
-            'is_original'  => 'nullable|boolean',
-            'published_at' => 'nullable|date',
-        ]);
-
-        // if (! isset($validatedData['slug'])) {
-        //     $validatedData['slug'] = str_slug($validatedData['title']);
-        // } else {
-        //     $validatedData['slug'] = str_slug($validatedData['slug']);
-        // }
-
-        return Post::create([
-            'title'        => $validatedData['title'],
-            'slug'         => $validatedData['slug'],
-            'content'      => $validatedData['content'],
-            'is_original'  => $validatedData['is_original'],
-            'published_at' => $validatedData['published_at'],
-        ]);
-    }
-
-    /**
      * Display the specified resource.
      *
      * @param int $id
@@ -66,7 +34,11 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('blog.show', [
+        if (! $post->published_at) {
+            abort(404);
+        }
+
+        return view('posts.show', [
             'post' => $post,
         ]);
     }

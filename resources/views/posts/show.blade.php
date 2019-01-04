@@ -6,7 +6,7 @@
             <h1>{{ $post->title }}</h1>
         </div>
 
-        <div>
+        <div class="x-post">
             {!! $post->rendered !!}
         </div>
     </div>
