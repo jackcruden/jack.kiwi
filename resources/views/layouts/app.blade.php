@@ -10,6 +10,8 @@
     <title>jack.kiwi</title>
     <meta name="description" content="Jack Cruden's portfolio website.">
 
+    <link rel="icon" href="/images/kiwifruit.png">
+
     <!-- Scripts -->
     <script src="{{ mix('/js/app.js') }}" defer></script>
 
@@ -20,7 +22,10 @@
     <div id="app">
         <div class="flex border-b">
             <div class="p-2 flex-1">
-                <div class="mb-1">jack.kiwi</div>
+                <div class="mb-1">
+                    <img src="/images/kiwifruit.svg" class="w-4 align-middle">
+                    jack.kiwi
+                </div>
                 <div class="text-xs text-grey-darker">Jack Cruden's portfolio website.</div>
             </div>
 
