@@ -126,9 +126,13 @@ a {
 }
 
 .x-navigation {
-    @apply .list-reset .flex .justify-end .items-center;
+    @apply .list-reset .block .w-full .justify-end .items-center .overflow-x-auto .overflow-y-visible .whitespace-no-wrap;
+
+    & > li {
+        @apply .inline-block;
+    }
     & > li > a {
-        @apply .block .border-b-2 .border-transparent .py-4 .px-4 .text-center;
+        @apply .block .border-b-2 .border-transparent .py-4 .px-4 .text-center .flex-1;
     }
     & > li > a.active {
         @apply .border-b-2 .border-blue-dark;
