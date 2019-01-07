@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 // Menu
 Route::view('/', 'pages.index');
 Route::view('projects', 'projects.index');
+Route::view('blog', 'posts.index');
 Route::get('blog/{post}', [PostController::class, 'show']);
 Route::get('me', function () {
     return view('posts.show', ['post' => Post::findBySlug('me')]);

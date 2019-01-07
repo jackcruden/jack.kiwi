@@ -69,7 +69,7 @@
 body {
     font-family: 'Montserrat';
     font-weight: 500;
-    background-color: #fffcef;
+    background-color: #fffdf4;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -77,13 +77,12 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
 }
 
-.x-list-label li {
-    @apply .inline-block .my-1 .p-1 .px-2 .rounded-lg .bg-green .text-white;
-}
-
 .x-project {
-    @apply .block .my-4 .mr-4 .p-3 .bg-grey-lightest .rounded-lg .no-underline .text-black;
-    @apply .border-2 .border-grey-lighter;
+    @apply .block .m-2 .p-3 .bg-white .rounded-lg .no-underline .text-black;
+    @apply .border-4 .border-grey-lighter;
+}
+.x-project:hover {
+    @apply .border-green;
 }
 .x-project h3 {
     @apply .block .text-2xl;
@@ -119,9 +118,9 @@ textarea.x-input {
 
 a {
     @apply .no-underline;
-    @apply .text-blue-dark;
+    @apply .text-green-dark;
     &:hover {
-        @apply .text-blue-darker;
+        @apply .text-green-darker;
     }
 }
 
@@ -132,10 +131,10 @@ a {
         @apply .inline-block;
     }
     & > li > a {
-        @apply .block .border-b-2 .border-transparent .py-4 .px-4 .text-center .flex-1;
+        @apply .block .border-b-4 .border-transparent .py-4 .px-4 .text-center .flex-1;
     }
     & > li > a.active {
-        @apply .border-b-2 .border-blue-dark;
+        @apply .border-b-4 .border-green;
     }
 }
 
