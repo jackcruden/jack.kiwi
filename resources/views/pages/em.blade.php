@@ -28,16 +28,16 @@
         <div class="m-6">
             <div class="mb-4">
                 <h1>The Hunt</h1>
-                <p>Clue #8</p>
             </div>
 
             <div v-if="!success" class="mb-4">
-                You'll wish you paid attention,<br>
-                Every time I did mention,<br>
-                The R-F-I-D sticker,<br>
-                Where is it now,<br>
-                That's the kicker.<br>
-                It's the code that you need,<br>
+                <strong>Clue #8</strong><br>
+                You'll wish you paid attention<br>
+                Every time I did mention<br>
+                The R-F-I-D sticker<br>
+                Where is it now?<br>
+                That's the kicker!<br>
+                It's the code that you need<br>
                 Paste it here please.
             </div>
 
@@ -55,14 +55,16 @@
             </div>
 
             <div v-if="success" class="mt-4">
-                If you managed this on your own,<br>
-                Congrats, you now sit on the tech throne,<br>
-                If you required a hand,<br>
+                <strong>Clue #9</strong><br>
+                If you decoded this on your own<br>
+                Congrats, you now sit<br>
+                On the tech throne.<br>
+                If you required a hand<br>
                 I was of course your man.<br>
                 <br>
-                Treat number one,<br>
-                You know what it is,<br>
-                Find it with the empty bottles,<br>
+                Treat number one<br>
+                You know what it is<br>
+                With the empty bottles<br>
                 That no longer fizz.
             </div>
         </div>
@@ -78,7 +80,7 @@
                 success: false,
                 code: '12345678901234565',
                 codeInput: '',
-                message: 'Paste code above for your next clue.',
+                message: 'Paste code above, it should fit like a glove.',
             },
 
             methods: {
@@ -89,7 +91,7 @@
                         window.loop()
                     } else {
                         this.codeInput = ''
-                        this.message = 'No such luck.'
+                        this.message = 'No such luck, try again pup.'
                         setTimeout(() => {
                             this.message = ''
                         }, 1000)
