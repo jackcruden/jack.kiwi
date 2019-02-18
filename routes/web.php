@@ -1,11 +1,15 @@
 <?php
 
-use App\Post;
 use App\Http\Controllers\PostController;
+use App\Post;
+
+// Temporary for Emma's hunt
+Route::view('em', 'pages.em');
 
 // Menu
 Route::view('/', 'pages.index');
 Route::view('projects', 'projects.index');
+Route::get('projects/{project}', [ProjectController::class, 'show']);
 Route::view('blog', 'posts.index');
 Route::get('blog/{post}', [PostController::class, 'show']);
 Route::get('me', function () {

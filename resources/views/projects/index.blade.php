@@ -9,7 +9,7 @@
         <div class="flex flex-wrap -m-2">
             @foreach(App\Project::all() as $project)
                 <div class="w-1/3">
-                    <a href="/blog/{{ $project->slug }}" class="x-project">
+                    <a href="/projects/{{ $project->slug }}" class="x-project">
                         <span>{{ $project->title }}</span><br>
                         <small class="text-grey-dark">{{ $project->published_at_human }}</small>
                     </a>
