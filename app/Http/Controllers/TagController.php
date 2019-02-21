@@ -45,14 +45,9 @@ class TagController extends Controller
      */
     public function show(Tag $tag)
     {
-        return 'yay';
-
         return view('tags.show', [
-            'posts' => $posts,
+            'tag'   => $tag,
         ]);
-        // $posts = Post::whereTag
-
-        // return view('tags.show', ['tag' => $tag]);
     }
 
     /**

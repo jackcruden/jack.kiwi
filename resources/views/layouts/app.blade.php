@@ -25,7 +25,7 @@
                 <div class="p-2 pl-3 whitespace-no-wrap">
                     <div class="mb-1">
                         <img src="/images/kiwifruit.svg" class="w-4 align-middle">
-                        jack.kiwi
+                        <strong>jack.kiwi</strong>
                     </div>
                     <div class="text-xs text-grey-darker">Jack Cruden's portfolio website.</div>
                 </div>
@@ -117,6 +117,10 @@
         @endif
 
         @yield('app')
+
+        <div class="mx-auto px-2 max-w-xl lg:mt-12">
+            @yield('content')
+        </div>
     </div>
 </body>
 </html>

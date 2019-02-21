@@ -1,6 +1,6 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,800');
+// @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,800');
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
 /**
@@ -67,14 +67,13 @@
  */
 
 body {
-    font-family: 'Avenir', 'Montserrat';
+    font-family: 'Avenir', sans-serif;
     font-weight: 300;
     background-color: #fffdf4;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat';
-    font-weight: 800;
+    font-weight: bold;
 }
 
 .x-project {
@@ -138,8 +137,9 @@ a {
     }
 }
 
-.x-post {
-    @apply .leading-normal;
+// .x-post {
+    // @apply .leading-normal;
+    @apply .leading-tight;
 
     blockquote {
         @apply .px-4 .py-2;
@@ -191,7 +191,7 @@ a {
             }
         }
     }
-}
+// }
 
 
 

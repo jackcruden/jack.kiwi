@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TagController;
 use App\Post;
 
 // Temporary for Emma's hunt
@@ -15,7 +16,6 @@ Route::view('blog', 'posts.index');
 Route::get('blog/{post}', [PostController::class, 'show']);
 Route::get('tags/{tag}', [TagController::class, 'show']);
 Route::get('me', function () {
-    // return redirect('/blog/me');
     return view('posts.show', ['post' => Post::findBySlug('me')]);
 });
 
