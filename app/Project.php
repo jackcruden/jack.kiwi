@@ -9,6 +9,10 @@ class Project extends Model
 {
     protected $fillable = ['title', 'slug', 'link', 'content', 'published_at', 'tag_id'];
 
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+
     public function tag()
     {
         return $this->belongsTo(Tag::class);

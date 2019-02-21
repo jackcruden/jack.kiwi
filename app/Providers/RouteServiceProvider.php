@@ -2,10 +2,11 @@
 
 namespace App\Providers;
 
-use App\Tag;
 use App\Post;
-use Illuminate\Support\Facades\Route;
+use App\Project;
+use App\Tag;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -31,6 +32,10 @@ class RouteServiceProvider extends ServiceProvider
 
         Route::bind('tag', function ($slug) {
             return Tag::where('slug', $slug)->first() ?? abort(404);
+        });
+
+        Route::bind('project', function ($slug) {
+            return Project::where('slug', $slug)->first() ?? abort(404);
         });
     }
 

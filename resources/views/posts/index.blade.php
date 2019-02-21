@@ -10,8 +10,15 @@
             @foreach(App\Post::published()->get() as $post)
             <div class="w-full">
                 <a href="/blog/{{ $post->slug }}" class="x-project">
-                    <span>{{ $post->title }}</span>
-                    <small class="text-grey-dark">{{ $post->published_at_human }}</small>
+                    <strong>{{ $post->title }}</strong>
+
+                    <small class="text-grey-dark">
+                        {{ $post->published_at_human }}
+                    </small>
+
+                    <div class="mt-2 text-sm text-grey-dark">
+                        {{ $post->snippet }}
+                    </div>
                 </a>
             </div>
             @endforeach

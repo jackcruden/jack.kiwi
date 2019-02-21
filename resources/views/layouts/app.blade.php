@@ -21,13 +21,15 @@
 <body>
     <div id="app">
         <div class="sm:flex border-b" style="background-color: #fffdf4;">
-            <div class="p-2 pl-3 whitespace-no-wrap">
-                <div class="mb-1">
-                    <img src="/images/kiwifruit.svg" class="w-4 align-middle">
-                    jack.kiwi
+            <a href="/" class="text-grey-darkest hover:text-grey-darkest">
+                <div class="p-2 pl-3 whitespace-no-wrap">
+                    <div class="mb-1">
+                        <img src="/images/kiwifruit.svg" class="w-4 align-middle">
+                        jack.kiwi
+                    </div>
+                    <div class="text-xs text-grey-darker">Jack Cruden's portfolio website.</div>
                 </div>
-                <div class="text-xs text-grey-darker">Jack Cruden's portfolio website.</div>
-            </div>
+            </a>
 
             <nav class="flex-1 text-right w-full justify-end items-center overflow-y-visible">
                 <ul class="x-navigation">

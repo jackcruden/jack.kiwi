@@ -1,6 +1,6 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500,900');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,800');
 // @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
 
 /**
@@ -67,14 +67,14 @@
  */
 
 body {
-    font-family: 'Montserrat';
-    font-weight: 500;
+    font-family: 'Avenir', 'Montserrat';
+    font-weight: 300;
     background-color: #fffdf4;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat';
-    font-weight: 900;
+    font-weight: 800;
 }
 
 .x-project {
@@ -139,11 +139,57 @@ a {
 }
 
 .x-post {
+    @apply .leading-normal;
+
+    blockquote {
+        @apply .px-4 .py-2;
+        @apply .border-l-8 .border-grey-lighter;
+    }
+    code {
+        @apply .px-2 .py-1;
+        @apply .text-sm .text-green-darker;
+        @apply .bg-green-lighter;
+        @apply .rounded;
+    }
     h1, h2, h3, h4, h5, h6 {
-        @apply .mb-3 .font-sans .font-semibold;
+        font-family: 'Avenir', sans-serif;
+        @apply .mb-2 .mt-5 .font-semibold;
+    }
+    hr {
+        @apply .border-b .border-grey-light;
+    }
+    img {
+        max-width: 33%;
     }
     p {
-        @apply .mb-2 .leading-normal .text-lg;
+        @apply .my-2 .leading-normal .text-lg;
+    }
+    pre {
+        @apply .block;
+        @apply .border .border-grey-dark .rounded;
+        & code {
+            @apply .block;
+            @apply .text-grey-darkest;
+            @apply .bg-white;
+        }
+    }
+    strong {
+        @apply .font-bold;
+    }
+    table {
+        @apply .rounded;
+
+        thead tr th {
+            @apply .px-1 .py-1;
+            @apply .border-b-2 .font-bold;
+        }
+        tbody tr {
+            @apply .border-b;
+
+            td {
+                @apply .px-1 .py-1;
+            }
+        }
     }
 }
 

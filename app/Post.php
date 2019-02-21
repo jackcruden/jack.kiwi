@@ -3,8 +3,8 @@
 namespace App;
 
 use Carbon\Carbon;
-use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
@@ -14,6 +14,10 @@ class Post extends Model
 
     protected $casts = [
         'published_at' => 'datetime',
+    ];
+
+    protected $appends = [
+        'snippet',
     ];
 
     public function tags()
@@ -44,5 +48,14 @@ class Post extends Model
     public function shouldBeSearchable()
     {
         return ! empty($this->published_at);
+    }
+
+    public function getSnippetAttribute()
+    {
+        if (strlen($this->content) >= 200) {
+            return substr($this->content, 0, 200).'...';
+        } else {
+            return $this->content;
+        }
     }
 }
