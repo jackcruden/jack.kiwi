@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Jack Cruden')
+
 @section('app')
     <div class="flex flex-wrap container mx-auto" style="min-height: calc(100vh - 54px);">
         <div class="w-full lg:max-w-sm self-center p-4">

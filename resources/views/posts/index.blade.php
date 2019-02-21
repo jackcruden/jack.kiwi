@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
+@section('title', 'Blog')
+
 @section('content')
-    <h1>Blog Posts</h1>
+    <h1>Blog</h1>
 
     <div class="flex flex-wrap -m-2">
         @foreach(App\Post::published()->get() as $post)

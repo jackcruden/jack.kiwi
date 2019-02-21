@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $project->title)
+
 @section('content')
     <h1>
         <a href="/projects/{{ $project->slug }}">
@@ -19,7 +21,7 @@
             @foreach(App\Tag::whereSlug($project->slug)->first()->posts()->whereNotNull('published_at')->get() as $post)
                 <div class="w-full">
                     <a href="/blog/{{ $post->slug }}" class="x-project">
-                        <span>{{ $post->title }}</span>
+                        <span class="font-medium">{{ $post->title }}</span>
                         <small class="text-grey-dark">{{ $post->published_at_human }}</small>
                     </a>
                 </div>

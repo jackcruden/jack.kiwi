@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>jack.kiwi</title>
+    <title>@yield('title', 'Jack Cruden') &horbar; jack.kiwi</title>
     <meta name="description" content="Jack Cruden's portfolio website.">
 
     <link rel="icon" href="/images/kiwifruit.png">

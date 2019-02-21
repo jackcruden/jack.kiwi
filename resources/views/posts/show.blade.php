@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', $post->title)
+
 @section('content')
     <h1>
         @if ($post->published_at)
