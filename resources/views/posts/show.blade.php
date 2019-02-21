@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('head')
+    <meta property="og:url"         content="{{ $post->link }}" />
+    <meta property="og:type"        content="article" />
+    <meta property="og:title"       content="{{ $post->title }}" />
+    <meta property="og:description" content="{!! $project->snippet !!}" />
+@endsection
+
 @section('title', $post->title)
 
 @section('content')

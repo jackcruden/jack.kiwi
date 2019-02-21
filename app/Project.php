@@ -33,4 +33,18 @@ class Project extends Model
     {
         return (new Carbon($this->published_at))->format('jS F, Y');
     }
+
+    public function getSnippetAttribute()
+    {
+        if (strlen($this->content) >= 200) {
+            return substr($this->content, 0, 200).'...';
+        } else {
+            return $this->content;
+        }
+    }
+
+    public function getLinkAttribute()
+    {
+        return config('app.url').'/projects/'.$this->slug;
+    }
 }

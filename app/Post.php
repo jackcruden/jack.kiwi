@@ -18,10 +18,6 @@ class Post extends Model implements Feedable
         'published_at' => 'datetime',
     ];
 
-    protected $appends = [
-        'snippet',
-    ];
-
     public function tags()
     {
         return $this->belongsToMany(Tag::class);
