@@ -5,6 +5,7 @@
     <meta property="og:type"        content="article" />
     <meta property="og:title"       content="{{ $post->title }}" />
     <meta property="og:description" content="{!! $post->snippet !!}" />
+    <meta property="og:image" content="{{ config('app.url').'/images/kiwifruit_white.png' }}" />
 @endsection
 
 @section('title', $post->title)

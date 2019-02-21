@@ -5,6 +5,7 @@
     <meta property="og:type"        content="article" />
     <meta property="og:title"       content="Jack Cruden - jack.kiwi" />
     <meta property="og:description" content="Jack Cruden's portfolio website." />
+    <meta property="og:image" content="{{ config('app.url').'/images/kiwifruit_white.png' }}" />
 @endsection
 
 @section('title', 'Jack Cruden')
