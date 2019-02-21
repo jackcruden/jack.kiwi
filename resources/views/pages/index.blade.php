@@ -3,12 +3,12 @@
 @section('head')
     <meta property="og:url"         content="{{ config('app.url') }}" />
     <meta property="og:type"        content="article" />
-    <meta property="og:title"       content="Jack Cruden - jack.kiwi" />
-    <meta property="og:description" content="Jack Cruden's portfolio website." />
+    <meta property="og:title"       content="Jack Cruden's portfolio & blog - jack.kiwi" />
+    <meta property="og:description" content="Jack Cruden's portfolio & blog" />
     <meta property="og:image" content="{{ config('app.url').'/images/kiwifruit_white.png' }}" />
 @endsection
 
-@section('title', 'Full stack web developer')
+@section('title', 'Jack Cruden\'s portfolio & blog')
 
 @section('app')
     <div class="flex flex-wrap container mx-auto" style="min-height: calc(100vh - 55px);">

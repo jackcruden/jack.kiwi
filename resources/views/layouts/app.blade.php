@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, scale=1.0, viewport-fit=cover">
     @include('feed::links')
     <title>@yield('title', 'Jack Cruden') - jack.kiwi</title>
-    <meta name="description" content="Jack Cruden's portfolio website.">
+    <meta name="description" content="Jack Cruden's portfolio & blog">
     <link rel="icon" href="/images/kiwifruit.png">
 
     <!-- CSRF Token -->
@@ -24,7 +24,7 @@
                         <img src="/images/kiwifruit.svg" class="w-4 align-middle" alt="Kiwifruit">
                         <strong>jack.kiwi</strong>
                     </div>
-                    <div class="text-xs text-grey-darker">Jack Cruden's portfolio website.</div>
+                    <div class="text-xs text-grey-darker">Jack Cruden's portfolio & blog</div>
                 </div>
             </a>
 
