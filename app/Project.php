@@ -20,7 +20,8 @@ class Project extends Model
 
     public function scopePublished($query)
     {
-        return $query->where('published_at', '<=', new Carbon());
+        return $query->where('published_at', '<=', new Carbon())
+            ->orderBy('published_at', 'desc');
     }
 
     public function getRenderedAttribute()
@@ -30,6 +31,6 @@ class Project extends Model
 
     public function getPublishedAtHumanAttribute()
     {
-        return (new Carbon($this->publised_at))->format('jS F, Y');
+        return (new Carbon($this->published_at))->format('jS F, Y');
     }
 }
