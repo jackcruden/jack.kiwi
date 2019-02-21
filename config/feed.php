@@ -3,13 +3,13 @@
 return [
     'feeds' => [
         'blog' => [
-            'items' => 'App\Post@getAllFeedItems',
+            'items' => App\Post::class.'@getAllFeedItems',
             'url'   => '/feed/blog',
             'title' => 'jack.kiwi - Blog',
             'view'  => 'feed::feed',
         ],
         'projects' => [
-            'items' => 'App\Project@getAllFeedItems',
+            'items' => App\Project::class.'@getAllFeedItems',
             'url'   => '/feed/projects',
             'title' => 'jack.kiwi - Projects',
             'view'  => 'feed::feed',

@@ -8,7 +8,7 @@
     <meta property="og:image" content="{{ config('app.url').'/images/kiwifruit_white.png' }}" />
 @endsection
 
-@section('title', 'Jack Cruden')
+@section('title', 'Full stack web developer')
 
 @section('app')
     <div class="flex flex-wrap container mx-auto" style="min-height: calc(100vh - 55px);">
