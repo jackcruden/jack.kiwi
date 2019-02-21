@@ -11,9 +11,8 @@
         gtag('config', 'UA-134924908-1');
     </script>
 
-
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     @include('feed::links')
     <title>@yield('title', 'Jack Cruden') - jack.kiwi</title>
     <meta name="description" content="Jack Cruden's portfolio & blog">
