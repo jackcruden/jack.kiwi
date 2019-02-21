@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('head')
+    <meta property="og:url"         content="{{ config('app.url') }}" />
+    <meta property="og:type"        content="article" />
+    <meta property="og:title"       content="Jack Cruden - jack.kiwi" />
+    <meta property="og:description" content="Jack Cruden's portfolio website." />
+@endsection
+
 @section('title', 'Jack Cruden')
 
 @section('app')
