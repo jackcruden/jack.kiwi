@@ -19,7 +19,9 @@ Route::get('me', function () {
     return view('posts.show', ['post' => Post::findBySlug('me')]);
 });
 
-Auth::routes();
+Route::feeds();
+
+// Auth::routes();
 
 // Route::resource('links', 'LinkController');
 // Route::get('{url}', 'LinkController@show');

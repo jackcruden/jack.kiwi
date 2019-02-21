@@ -96,13 +96,13 @@ let colors = {
   // 'teal-lighter': '#a0f0ed',
   // 'teal-lightest': '#e8fffe',
 
-  'blue-darkest': '#12283a',
-  'blue-darker': '#1c3d5a',
-  'blue-dark': '#2779bd',
-  'blue': '#3490dc',
-  'blue-light': '#6cb2eb',
-  'blue-lighter': '#bcdefa',
-  'blue-lightest': '#eff8ff',
+  // 'blue-darkest': '#12283a',
+  // 'blue-darker': '#1c3d5a',
+  // 'blue-dark': '#2779bd',
+  // 'blue': '#3490dc',
+  // 'blue-light': '#6cb2eb',
+  // 'blue-lighter': '#bcdefa',
+  // 'blue-lightest': '#eff8ff',
 
   // 'indigo-darkest': '#191e38',
   // 'indigo-darker': '#2f365f',
@@ -747,12 +747,12 @@ module.exports = {
   */
 
   shadows: {
-    default: '0 2px 4px 0 rgba(0,0,0,0.10)',
-    'md': '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
-    'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
-    'inner': 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
-    'outline': '0 0 0 3px rgba(52,144,220,0.5)',
-    'none': 'none',
+    // default: '0 2px 4px 0 rgba(0,0,0,0.10)',
+    // 'md': '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
+    // 'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
+    // 'inner': 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
+    // 'outline': '0 0 0 3px rgba(52,144,220,0.5)',
+    // 'none': 'none',
   },
 
 
@@ -770,13 +770,13 @@ module.exports = {
   */
 
   zIndex: {
-    'auto': 'auto',
-    '0': 0,
-    '10': 10,
-    '20': 20,
-    '30': 30,
-    '40': 40,
-    '50': 50,
+    // 'auto': 'auto',
+    // '0': 0,
+    // '10': 10,
+    // '20': 20,
+    // '30': 30,
+    // '40': 40,
+    // '50': 50,
   },
 
 
@@ -794,11 +794,11 @@ module.exports = {
   */
 
   opacity: {
-    '0': '0',
-    '25': '.25',
-    '50': '.5',
-    '75': '.75',
-    '100': '1',
+    // '0': '0',
+    // '25': '.25',
+    // '50': '.5',
+    // '75': '.75',
+    // '100': '1',
   },
 
 
@@ -817,7 +817,7 @@ module.exports = {
   */
 
   svgFill: {
-    'current': 'currentColor',
+    // 'current': 'currentColor',
   },
 
 
@@ -836,7 +836,7 @@ module.exports = {
   */
 
   svgStroke: {
-    'current': 'currentColor',
+    // 'current': 'currentColor',
   },
 
 

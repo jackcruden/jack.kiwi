@@ -3,7 +3,7 @@
 @section('title', 'Jack Cruden')
 
 @section('app')
-    <div class="flex flex-wrap container mx-auto" style="min-height: calc(100vh - 54px);">
+    <div class="flex flex-wrap container mx-auto" style="min-height: calc(100vh - 55px);">
         <div class="w-full lg:max-w-sm self-center p-4">
             <div class="text-xl md:text-3xl">
                 <h1>Hi, I'm Jack.</h1>
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="flex-1 lg:overflow-y-scroll px-3 pb-12" style="height: calc(100vh - 54px);">
+        <div class="flex-1 lg:overflow-y-scroll px-3" style="height: calc(100vh - 55px);">
             <div class="my-4">
                 <h2 class="mb-3">Projects</h2>
 

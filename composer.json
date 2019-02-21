@@ -23,6 +23,7 @@
         "laravel/nova": "~1.0",
         "laravel/scout": "^6.1",
         "laravel/tinker": "^1.0",
+        "spatie/laravel-feed": "^2.1",
         "spatie/nova-tags-field": "^1.1"
     },
     "require-dev": {

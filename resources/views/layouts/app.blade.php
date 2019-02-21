@@ -2,20 +2,15 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, scale=1.0, viewport-fit=cover">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    @include('feed::links')
 
     <title>@yield('title', 'Jack Cruden') &horbar; jack.kiwi</title>
     <meta name="description" content="Jack Cruden's portfolio website.">
 
     <link rel="icon" href="/images/kiwifruit.png">
 
-    <!-- Scripts -->
-    <script src="{{ mix('/js/app.js') }}" defer></script>
-
-    <!-- Styles -->
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -24,7 +19,7 @@
             <a href="/" class="text-grey-darkest hover:text-grey-darkest">
                 <div class="p-2 pl-3 whitespace-no-wrap">
                     <div class="mb-1">
-                        <img src="/images/kiwifruit.svg" class="w-4 align-middle">
+                        <img src="/images/kiwifruit.svg" class="w-4 align-middle" alt="Kiwifruit">
                         <strong>jack.kiwi</strong>
                     </div>
                     <div class="text-xs text-grey-darker">Jack Cruden's portfolio website.</div>
@@ -39,12 +34,12 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/projects" class="@active('projects')">
+                        <a href="/projects" class="@active('projects*')">
                             Projects
                         </a>
                     </li>
                     <li>
-                        <a href="/blog" class="@active('blog/*')">
+                        <a href="/blog" class="@active('blog*')">
                             Blog
                         </a>
                     </li>
@@ -72,7 +67,7 @@
                                                 </a>
                                             </li>
                                             <li class="pt-2 pr-2 text-right">
-                                                <a href="https://algolia.com" target="_blank">
+                                                <a href="https://algolia.com" target="_blank" rel="noopener">
                                                     <img src="/images/algolia.svg" class="h-4">
                                                 </a>
                                             </li>
@@ -118,9 +113,13 @@
 
         @yield('app')
 
-        <div class="mx-auto px-2 max-w-xl lg:mt-12">
-            @yield('content')
-        </div>
+        @if (trim($__env->yieldContent('content')))
+            <div class="mx-auto px-2 max-w-xl lg:mt-12">
+                @yield('content')
+            </div>
+        @endif
     </div>
+
+    <script src="{{ mix('/js/app.js') }}" defer></script>
 </body>
 </html>

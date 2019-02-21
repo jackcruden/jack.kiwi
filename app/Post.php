@@ -5,8 +5,10 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Scout\Searchable;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
-class Post extends Model
+class Post extends Model implements Feedable
 {
     use Searchable;
 
@@ -58,5 +60,26 @@ class Post extends Model
         } else {
             return $this->content;
         }
+    }
+
+    public function getLinkAttribute()
+    {
+        return config('app.url').'/blog/'.$this->slug;
+    }
+
+    public function toFeedItem()
+    {
+        return FeedItem::create()
+            ->id($this->id)
+            ->title($this->title)
+            ->summary($this->rendered)
+            ->updated($this->published_at)
+            ->link($this->link)
+            ->author('Jack Cruden');
+    }
+
+    public static function getAllFeedItems()
+    {
+        return Post::published()->get();
     }
 }
