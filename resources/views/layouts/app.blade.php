@@ -6,6 +6,9 @@
 
     @include('feed::links')
 
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>@yield('title', 'Jack Cruden') &horbar; jack.kiwi</title>
     <meta name="description" content="Jack Cruden's portfolio website.">
 
