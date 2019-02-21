@@ -19,4 +19,4 @@ Route::get('me', function () {
 });
 
 Route::resource('links', 'LinkController');
-Route::get('{url}', 'LinkController@show');
+Route::get('{link?}', 'LinkController@show')->where('link', '^(?!nova|horizon.*$).*');
