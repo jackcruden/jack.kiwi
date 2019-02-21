@@ -4,8 +4,10 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Feed\Feedable;
+use Spatie\Feed\FeedItem;
 
-class Project extends Model
+class Project extends Model implements Feedable
 {
     protected $fillable = ['title', 'slug', 'link', 'content', 'published_at', 'tag_id'];
 
@@ -46,5 +48,21 @@ class Project extends Model
     public function getLinkAttribute()
     {
         return config('app.url').'/projects/'.$this->slug;
+    }
+
+    public static function getAllFeedItems()
+    {
+        return Project::published()->get();
+    }
+
+    public function toFeedItem()
+    {
+        return FeedItem::create()
+            ->id($this->id)
+            ->title($this->title)
+            ->summary($this->rendered)
+            ->updated($this->published_at)
+            ->link($this->link)
+            ->author('Jack Cruden');
     }
 }

@@ -63,6 +63,11 @@ class Post extends Model implements Feedable
         return config('app.url').'/blog/'.$this->slug;
     }
 
+    public static function getAllFeedItems()
+    {
+        return Post::published()->get();
+    }
+
     public function toFeedItem()
     {
         return FeedItem::create()
@@ -72,10 +77,5 @@ class Post extends Model implements Feedable
             ->updated($this->published_at)
             ->link($this->link)
             ->author('Jack Cruden');
-    }
-
-    public static function getAllFeedItems()
-    {
-        return Post::published()->get();
     }
 }

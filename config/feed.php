@@ -2,28 +2,17 @@
 
 return [
     'feeds' => [
-        'main' => [
-            /*
-             * Here you can specify which class and method will return
-             * the items that should appear in the feed. For example:
-             * 'App\Model@getAllFeedItems'
-             *
-             * You can also pass an argument to that method:
-             * ['App\Model@getAllFeedItems', 'argument']
-             */
+        'blog' => [
             'items' => 'App\Post@getAllFeedItems',
-
-            /*
-             * The feed will be available on this url.
-             */
-            'url' => '/feed',
-
-            'title' => 'jack.kiwi',
-
-            /*
-             * The view that will render the feed.
-             */
-            'view' => 'feed::feed',
+            'url'   => '/feed/blog',
+            'title' => 'jack.kiwi - Blog',
+            'view'  => 'feed::feed',
+        ],
+        'projects' => [
+            'items' => 'App\Project@getAllFeedItems',
+            'url'   => '/feed/projects',
+            'title' => 'jack.kiwi - Projects',
+            'view'  => 'feed::feed',
         ],
     ],
 ];
