@@ -37,7 +37,7 @@ class Post extends Model
 
     public function getPublishedAtHumanAttribute()
     {
-        return (new Carbon($this->publised_at))->format('jS F, Y');
+        return (new Carbon($this->published_at))->format('jS F, Y');
     }
 
     public static function findBySlug($slug)

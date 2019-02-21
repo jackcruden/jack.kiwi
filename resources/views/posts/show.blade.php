@@ -10,7 +10,7 @@
             </h1>
 
             @if ($post->published_at)
-                <p class="text-grey-dark">{{ $post->published_at->format('l, jS F Y') }}</p>
+                <p class="text-grey-dark">{{ $post->published_at_human }}</p>
             @endif
 
             @if ($post->tags)

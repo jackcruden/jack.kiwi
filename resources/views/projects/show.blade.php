@@ -8,7 +8,7 @@
                     {{ $project->title }}
                 </a>
             </h1>
-            <p class="text-grey-dark">{{ $project->published_at->format('l, jS F Y') }}</p>
+            <p class="text-grey-dark">{{ $project->published_at_human }}</p>
         </div>
 
         <div class="x-post">
