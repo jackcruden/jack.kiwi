@@ -2,9 +2,13 @@
 
 @section('content')
     <h1>
-        <a href="/blog/{{ $post->slug }}">
+        @if ($post->published_at)
+            <a href="/blog/{{ $post->slug }}">
+                {{ $post->title }}
+            </a>
+        @else
             {{ $post->title }}
-        </a>
+        @endif
     </h1>
 
     @if ($post->published_at)
