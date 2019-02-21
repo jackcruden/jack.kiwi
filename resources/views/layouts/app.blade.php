@@ -108,18 +108,22 @@
         </div>
 
         @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
+            <div class="mx-auto max-w-xl text-center">
+                <div class="inline-block mx-auto mb-2 p-2 bg-green text-white text-center rounded-b-lg">
+                    {{ session('success') }}
+                </div>
             </div>
         @endif
 
         @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+            <div class="mx-auto max-w-xl text-center">
+                <div class="inline-block mx-auto mb-2 p-2 bg-red text-white text-center rounded-b-lg">
+                    <ul class="list-reset">
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         @endif
 
@@ -133,5 +137,7 @@
     </div>
 
     <script src="{{ mix('/js/app.js') }}" defer></script>
+
+    @yield('footer')
 </body>
 </html>

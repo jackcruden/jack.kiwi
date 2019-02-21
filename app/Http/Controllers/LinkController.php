@@ -14,7 +14,9 @@ class LinkController extends Controller
      */
     public function index()
     {
-        return view('links.index', ['links' => Link::all()]);
+        return view('links.index', [
+            'links' => Link::all(),
+        ]);
     }
 
     /**
