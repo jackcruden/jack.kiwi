@@ -28,8 +28,8 @@
 <body>
     <div id="app">
         <div class="sm:flex border-b" style="background-color: #fffdf4;">
-            <a href="/" class="text-grey-darkest hover:text-grey-darkest">
-                <div class="p-2 pl-3 whitespace-no-wrap">
+            <a href="/" class="flex flex-1 items-center text-grey-darkest hover:text-grey-darkest">
+                <div class="pl-3 whitespace-no-wrap">
                     <div class="mb-1">
                         <img src="/images/kiwifruit.svg" class="w-4 align-middle" alt="Kiwifruit">
                         <strong>jack.kiwi</strong>
@@ -60,7 +60,7 @@
                             Me
                         </a>
                     </li>
-                    <li class="w-auto items-center pl-4 pr-4">
+                    <li class="w-auto pl-4 pr-4">
                         <div class="w-full">
                             <ais-index
                                 app-id="ZX7KWEFAEQ"
