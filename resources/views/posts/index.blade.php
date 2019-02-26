@@ -18,8 +18,7 @@
 
                     <small class="whitespace-no-wrap md:float-right text-grey-dark">
                         <span class="md:hidden">&nbsp;&middot;&nbsp;</span>
-                        {{ $post->minutes_to_read }}
-                        {{ $post->minutes_to_read === 1 ? 'minute' : 'minutes' }} read
+                        {{ $post->minutes_to_read }} minute read
                     </small>
 
                     <div class="mt-2 text-sm text-grey-dark">
