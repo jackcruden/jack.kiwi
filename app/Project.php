@@ -9,7 +9,7 @@ use Spatie\Feed\FeedItem;
 
 class Project extends Model implements Feedable
 {
-    protected $fillable = ['title', 'slug', 'link', 'content', 'published_at', 'tag_id'];
+    protected $fillable = ['title', 'slug', 'image', 'link', 'content', 'published_at', 'tag_id'];
 
     protected $casts = [
         'published_at' => 'datetime',

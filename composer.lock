@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6d216b5a649931fc8781a7ef516d07b8",
+    "content-hash": "823314c85bca785815f292b4db19feb7",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -167,6 +167,56 @@
                 "time"
             ],
             "time": "2018-10-18T22:02:21+00:00"
+        },
+        {
+            "name": "carlson/nova-link-field",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andrewicarlson/nova-link-field.git",
+                "reference": "eb10d233e641180256c38b1f94357c7356ea6636"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andrewicarlson/nova-link-field/zipball/eb10d233e641180256c38b1f94357c7356ea6636",
+                "reference": "eb10d233e641180256c38b1f94357c7356ea6636",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "component": "package",
+                "laravel": {
+                    "providers": [
+                        "Carlson\\NovaLinkField\\FieldServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Carlson\\NovaLinkField\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Carlson",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A Laravel Nova field for HTML links.",
+            "keywords": [
+                "anchor",
+                "laravel",
+                "link",
+                "nova"
+            ],
+            "time": "2019-02-05T16:14:08+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

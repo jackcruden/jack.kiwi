@@ -5,12 +5,20 @@
     <meta property="og:type"        content="article" />
     <meta property="og:title"       content="{{ $post->title }}" />
     <meta property="og:description" content="{!! strip_tags($post->snippet) !!}" />
-    <meta property="og:image" content="{{ config('app.url').'/images/kiwifruit_white.png' }}" />
+    @if ($post->image)
+        <meta property="og:image" content="{{ config('app.url').'/storage/'.$post->image }}" />
+    @else
+        <meta property="og:image" content="{{ config('app.url').'/images/kiwifruit_white.png' }}" />
+    @endif
 @endsection
 
 @section('title', $post->title)
 
 @section('content')
+    @if ($post->image)
+        <img src="/storage/{{ $post->image }}" alt="{{ $post->title }}" class="rounded-lg" style="max-height: 420px;">
+    @endif
+
     <h1>
         @if ($post->published_at)
             <a href="/blog/{{ $post->slug }}">

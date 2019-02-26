@@ -130,7 +130,7 @@
         @yield('app')
 
         @if (trim($__env->yieldContent('content')))
-            <div class="mx-auto px-2 max-w-xl lg:mt-12">
+            <div class="mx-auto px-3 max-w-xl my-6 lg:my-12">
                 @yield('content')
             </div>
         @endif

@@ -7,11 +7,9 @@
 
     <div class="flex flex-wrap -m-2">
         @foreach(App\Project::published()->get() as $project)
-            <div class="w-1/3">
-                <a href="/projects/{{ $project->slug }}" class="x-project">
-                    <span class="font-medium">{{ $project->title }}</span><br>
-                    <small class="text-grey-dark">{{ $project->published_at_human }}</small>
-                </a>
+            <div class="w-full sm:w-1/2 md:w-1/3">
+                @component('project', compact('project'))
+                @endcomponent
             </div>
         @endforeach
     </div>

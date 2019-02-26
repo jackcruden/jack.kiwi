@@ -76,23 +76,6 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
-.x-project {
-    @apply .block .m-2 .p-3 .bg-white .rounded-lg .no-underline .text-black;
-    @apply .border-4 .border-grey-lighter;
-}
-.x-project:hover {
-    @apply .border-green;
-}
-.x-project h3 {
-    @apply .block .text-2xl;
-}
-.x-project p {
-    @apply .my-2 .block .text-xl;
-}
-.x-project img {
-    @apply .block .rounded;
-}
-
 .x-input {
     @apply .w-full .p-2 .text-xl .border-4 .bg-white .rounded-lg;
 }
@@ -113,6 +96,21 @@ textarea.x-input {
 .x-button:focus {
     @apply .outline-none;
     @apply .border-green;
+}
+
+/* An item is the project or post preview */
+.x-item {
+    @apply .block .m-2 .bg-white .rounded-lg .no-underline .text-black;
+    @apply .border-4 .border-grey-lighter;
+}
+.x-item:hover {
+    @apply .border-green;
+}
+.x-item-image {
+    min-height: 100px;
+    background-size: cover;
+    background-position: center center;
+    @apply .block .rounded;
 }
 
 a {

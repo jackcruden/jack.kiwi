@@ -2,13 +2,15 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\ID;
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\DateTime;
-use Laravel\Nova\Fields\Markdown;
-use Laravel\Nova\Fields\BelongsTo;
 use Benjaminhirsch\NovaSlugField\Slug;
 use Benjaminhirsch\NovaSlugField\TextWithSlug;
+use Carlson\NovaLinkField\Link;
+use Illuminate\Http\Request;
+use Infinety\Filemanager\FilemanagerField;
+use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Markdown;
 
 class Project extends Resource
 {
@@ -45,6 +47,18 @@ class Project extends Resource
     public function fields(Request $request)
     {
         return [
+            Link::make('View', 'slug')
+                ->details([
+                    'href' => function () {
+                        return config('app.url').'/projects/'.$this->slug;
+                    },
+                    'text' => function () {
+                        return 'Open in new tab';
+                    },
+                    'newTab' => true,
+                ])
+                ->onlyOnDetail(),
+
             ID::make()->sortable(),
 
             TextWithSlug::make('Title')
@@ -56,6 +70,8 @@ class Project extends Resource
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true,
                 ]]),
+
+            FilemanagerField::make('Image')->displayAsImage(),
 
             Markdown::make('Content')
                 ->sortable()

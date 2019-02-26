@@ -2,14 +2,16 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\ID;
+use Benjaminhirsch\NovaSlugField\Slug;
+use Benjaminhirsch\NovaSlugField\TextWithSlug;
+use Carlson\NovaLinkField\Link;
 use Illuminate\Http\Request;
+use Infinety\Filemanager\FilemanagerField;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
+use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Markdown;
-use Benjaminhirsch\NovaSlugField\Slug;
-use Laravel\Nova\Fields\BelongsToMany;
-use Benjaminhirsch\NovaSlugField\TextWithSlug;
 
 class Post extends Resource
 {
@@ -46,6 +48,18 @@ class Post extends Resource
     public function fields(Request $request)
     {
         return [
+            Link::make('View', 'slug')
+                ->details([
+                    'href' => function () {
+                        return config('app.url').'/blog/'.$this->slug;
+                    },
+                    'text' => function () {
+                        return 'Open in new tab';
+                    },
+                    'newTab' => true,
+                ])
+                ->onlyOnDetail(),
+
             ID::make()->sortable(),
 
             TextWithSlug::make('Title')
@@ -57,6 +71,8 @@ class Post extends Resource
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true,
                 ]]),
+
+            FilemanagerField::make('Image')->displayAsImage(),
 
             Markdown::make('Content')
                 ->sortable()

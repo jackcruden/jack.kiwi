@@ -12,7 +12,7 @@ class Post extends Model implements Feedable
 {
     use Searchable;
 
-    protected $fillable = ['title', 'slug', 'content', 'is_original', 'published_at'];
+    protected $fillable = ['title', 'slug', 'image', 'content', 'is_original', 'published_at'];
 
     protected $casts = [
         'published_at' => 'datetime',
