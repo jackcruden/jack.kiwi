@@ -28,7 +28,7 @@
 <body>
     <div id="app">
         <div class="sm:flex border-b" style="background-color: #fffdf4;">
-            <a href="/" class="flex flex-1 items-center mt-2 sm:mt-0 text-grey-darkest hover:text-grey-darkest">
+            <a href="/" class="flex items-center mt-2 sm:mt-0 text-grey-darkest hover:text-grey-darkest">
                 <div class="pl-3 whitespace-no-wrap">
                     <div class="mb-1">
                         <img src="/images/kiwifruit.svg" class="w-4 align-middle" alt="Kiwifruit">
