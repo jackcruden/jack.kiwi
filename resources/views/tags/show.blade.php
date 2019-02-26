@@ -15,10 +15,8 @@
         <div class="flex flex-wrap -m-2">
             @foreach($tag->project()->published()->get() as $project)
                 <div class="w-1/3">
-                    <a href="/projects/{{ $project->slug }}" class="x-project">
-                        <span class="font-medium">{{ $project->title }}</span><br>
-                        <small class="text-grey-dark">{{ $project->published_at_human }}</small>
-                    </a>
+                    @component('project', compact('project'))
+                    @endcomponent
                 </div>
             @endforeach
         </div>
@@ -29,17 +27,8 @@
         <div class="flex flex-wrap -m-2">
             @foreach($tag->posts()->published()->get() as $post)
                 <div class="w-full">
-                    <a href="/blog/{{ $post->slug }}" class="x-project">
-                        <span class="font-medium">{{ $post->title }}</span>
-
-                        <small class="text-grey-dark">
-                            {{ $post->published_at_human }}
-                        </small>
-
-                        <div class="mt-2 text-sm text-grey-dark">
-                            {{ $post->snippet }}
-                        </div>
-                    </a>
+                    @component('post', compact('post'))
+                    @endcomponent
                 </div>
             @endforeach
         </div>
