@@ -22,7 +22,12 @@
     </h1>
 
     @if ($post->published_at)
-        <p class="text-grey-dark">{{ $post->published_at_human }}</p>
+        <p class="text-grey-dark">
+            {{ $post->published_at_human }}
+            &nbsp;&middot;&nbsp;
+            {{ $post->minutes_to_read }}
+            {{ $post->minutes_to_read === 1 ? 'minute' : 'minutes' }} read
+        </p>
     @endif
 
     @if ($post->tags)

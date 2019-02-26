@@ -29,6 +29,11 @@ class Post extends Model implements Feedable
             ->orderBy('published_at', 'desc');
     }
 
+    public function getMinutesToReadAttribute()
+    {
+        return max(round(str_word_count($this->content) / 200), 1);
+    }
+
     public function getRenderedAttribute()
     {
         return (new \Parsedown())->text($this->content);
@@ -37,11 +42,6 @@ class Post extends Model implements Feedable
     public function getPublishedAtHumanAttribute()
     {
         return (new Carbon($this->published_at))->format('jS F, Y');
-    }
-
-    public static function findBySlug($slug)
-    {
-        return Post::whereSlug($slug)->firstOrFail();
     }
 
     public function shouldBeSearchable()
@@ -61,6 +61,11 @@ class Post extends Model implements Feedable
     public function getLinkAttribute()
     {
         return config('app.url').'/blog/'.$this->slug;
+    }
+
+    public static function findBySlug($slug)
+    {
+        return Post::whereSlug($slug)->firstOrFail();
     }
 
     public static function getAllFeedItems()
