@@ -19,6 +19,7 @@
         "benjaminhirsch/nova-slug-field": "^1.1",
         "erusev/parsedown": "^1.7",
         "fideloper/proxy": "^4.0",
+        "infinety-es/nova-filemanager": "^1.1",
         "laravel/framework": "5.7.*",
         "laravel/nova": "~1.0",
         "laravel/scout": "^6.1",

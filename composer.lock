@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "01748d117ff7af5da54724c14f4e0d9a",
+    "content-hash": "6d216b5a649931fc8781a7ef516d07b8",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -710,6 +710,66 @@
                 "url"
             ],
             "time": "2018-12-04T20:46:45+00:00"
+        },
+        {
+            "name": "infinety-es/nova-filemanager",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/InfinetyES/Nova-Filemanager.git",
+                "reference": "d7135f712de3cf4b91501e65a2efe1f2ac47ec71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/InfinetyES/Nova-Filemanager/zipball/d7135f712de3cf4b91501e65a2efe1f2ac47ec71",
+                "reference": "d7135f712de3cf4b91501e65a2efe1f2ac47ec71",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/nova": "*",
+                "php": ">=7.1.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^3.6",
+                "phpunit/phpunit": "7.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Infinety\\Filemanager\\FilemanagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Infinety\\Filemanager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Eric Lagarda",
+                    "email": "eric@infinety.es",
+                    "role": "Developer"
+                },
+                {
+                    "name": "InfinetyEs",
+                    "email": "apps@infinety.es",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Filemanager tool for Laravel Nova",
+            "homepage": "https://github.com/krato/nova-filemanager",
+            "keywords": [
+                "filemanager",
+                "laravel",
+                "nova"
+            ],
+            "time": "2018-10-09T08:24:30+00:00"
         },
         {
             "name": "jakub-onderka/php-console-color",
