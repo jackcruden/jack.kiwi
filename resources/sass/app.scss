@@ -135,58 +135,59 @@ a {
     }
 }
 
-// .x-post {
-    // @apply .leading-normal;
-    @apply .leading-tight;
+@apply .leading-tight;
 
-    blockquote {
-        @apply .px-4 .py-2;
-        @apply .border-l-8 .border-grey-lighter;
-    }
-    code {
-        @apply .px-2 .py-1;
-        @apply .text-sm .text-green-darker;
-        @apply .bg-green-lighter;
-        @apply .rounded;
-    }
-    h1, h2, h3, h4, h5, h6 {
-        font-family: 'Avenir', sans-serif;
-        @apply .mb-2 .mt-5 .font-semibold;
-    }
-    hr {
-        @apply .border-b .border-grey-light;
-    }
-    p {
-        @apply .my-2 .leading-normal .text-lg;
-    }
-    pre {
+.image-container img {
+    @apply .border-4 .border-grey-light .rounded-lg;
+}
+
+blockquote {
+    @apply .px-4 .py-2;
+    @apply .border-l-8 .border-grey-lighter;
+}
+code {
+    @apply .px-2 .py-1;
+    @apply .text-sm .text-green-darker;
+    @apply .bg-green-lighter;
+    @apply .rounded;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Avenir', sans-serif;
+    @apply .mb-2 .mt-5 .font-semibold;
+}
+hr {
+    @apply .border-b .border-grey-light;
+}
+p {
+    @apply .my-2 .leading-normal .text-lg;
+}
+pre {
+    @apply .block;
+    @apply .border .border-grey-dark .rounded;
+    & code {
         @apply .block;
-        @apply .border .border-grey-dark .rounded;
-        & code {
-            @apply .block;
-            @apply .text-grey-darkest;
-            @apply .bg-white;
-        }
+        @apply .text-grey-darkest;
+        @apply .bg-white;
     }
-    strong {
-        @apply .font-bold;
-    }
-    table {
-        @apply .rounded;
+}
+strong {
+    @apply .font-bold;
+}
+table {
+    @apply .rounded;
 
-        thead tr th {
+    thead tr th {
+        @apply .px-1 .py-1;
+        @apply .border-b-2 .font-bold;
+    }
+    tbody tr {
+        @apply .border-b;
+
+        td {
             @apply .px-1 .py-1;
-            @apply .border-b-2 .font-bold;
-        }
-        tbody tr {
-            @apply .border-b;
-
-            td {
-                @apply .px-1 .py-1;
-            }
         }
     }
-// }
+}
 
 
 

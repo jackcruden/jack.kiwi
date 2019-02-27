@@ -49,7 +49,7 @@
         </ul>
     @endif
 
-    <div class="mt-4">
+    <div class="mt-4 image-container">
         {!! $post->rendered !!}
     </div>
 

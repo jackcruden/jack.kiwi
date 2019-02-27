@@ -26,7 +26,7 @@
     </h1>
     <p class="text-grey-dark">{{ $project->published_at_human }}</p>
 
-    <div class="mt-4">
+    <div class="mt-4 image-container">
         {!! $project->rendered !!}
     </div>
 
