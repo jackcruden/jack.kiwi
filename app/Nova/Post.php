@@ -71,11 +71,12 @@ class Post extends Resource
             Slug::make('Slug')
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true,
-                ]]),
+                ]])
+                ->hideFromIndex(),
 
             FilemanagerField::make('Image')->displayAsImage(),
 
-            Text::make('Embed Url'),
+            Text::make('Embed Url')->hideFromIndex(),
 
             Markdown::make('Content')
                 ->sortable()
@@ -83,7 +84,8 @@ class Post extends Resource
 
             Boolean::make('Is Original')
                 ->sortable()
-                ->rules('nullable', 'boolean'),
+                ->rules('nullable', 'boolean')
+                ->hideFromIndex(),
 
             DateTime::make('Published At')
                 ->sortable()

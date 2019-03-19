@@ -14,6 +14,8 @@ class Post extends Model implements Feedable
 
     protected $fillable = ['title', 'slug', 'embed_url', 'image', 'content', 'is_original', 'published_at'];
 
+    protected $appends = ['link'];
+
     protected $casts = [
         'published_at' => 'datetime',
     ];
@@ -65,11 +67,6 @@ class Post extends Model implements Feedable
         return (new Carbon($this->published_at))->format('jS F, Y');
     }
 
-    public function shouldBeSearchable()
-    {
-        return ! empty($this->published_at);
-    }
-
     public function getSnippetAttribute()
     {
         if (strlen($this->content) >= 200) {
@@ -111,4 +108,18 @@ class Post extends Model implements Feedable
             ->link($this->link)
             ->author('Jack Cruden');
     }
+
+    public function shouldBeSearchable()
+    {
+        return ! empty($this->published_at);
+    }
+
+    // public function toSearchableArray()
+    // {
+    //     $array = $this->toArray();
+
+    //     $array['link'] = $this->link;
+
+    //     return $array;
+    // }
 }
