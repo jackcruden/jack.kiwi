@@ -105,7 +105,7 @@
                                         </ul>
                                     </div>
                                 </ais-no-results>
-                             </ais-index>
+                            </ais-index>
                         </div>
                     </li>
                 </ul>
