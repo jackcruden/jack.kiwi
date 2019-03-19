@@ -51,7 +51,7 @@
 
                 <div class="flex flex-wrap -m-2">
                     @foreach(App\Post::sketch()->published()->get() as $sketch)
-                        <div class="w-full md:w-1/2 xl:w-1/3">
+                        <div class="w-1/2 sm:w-1/4 lg:w-1/3 xl:w-1/4">
                             @component('sketch', compact('sketch'))
                             @endcomponent
                         </div>
