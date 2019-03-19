@@ -15,7 +15,7 @@
         </small>
 
         <div class="mt-2 text-sm text-grey-dark">
-            {{ $post->snippet }}
+            {!! strip_tags($post->snippet) !!}
         </div>
     </div>
 
