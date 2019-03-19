@@ -122,7 +122,7 @@ a {
 }
 
 .x-navigation {
-    @apply .list-reset .block .w-full .justify-end .items-center .overflow-x-auto .overflow-y-visible .whitespace-no-wrap;
+    @apply .list-reset .block .justify-end .items-center .overflow-x-auto .overflow-y-visible .whitespace-no-wrap;
 
     & > li {
         @apply .inline-block;

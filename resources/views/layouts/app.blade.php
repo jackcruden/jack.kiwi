@@ -38,7 +38,7 @@
                 </div>
             </a>
 
-            <nav class="flex-1 text-right w-full justify-end items-center overflow-y-visible">
+            <nav class="flex-1 text-right justify-end items-center overflow-y-visible overflow-x-hidden">
                 <ul class="x-navigation">
                     <li>
                         <a href="/" class="@active('/')">
