@@ -113,13 +113,4 @@ class Post extends Model implements Feedable
     {
         return ! empty($this->published_at);
     }
-
-    // public function toSearchableArray()
-    // {
-    //     $array = $this->toArray();
-
-    //     $array['link'] = $this->link;
-
-    //     return $array;
-    // }
 }

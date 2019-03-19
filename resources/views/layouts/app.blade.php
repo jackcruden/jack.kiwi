@@ -79,7 +79,7 @@
                                     <div v-show="searchStore.query.length > 0" class="absolute w-auto mt-1 pin-r bg-white rounded-lg border mr-3" style="max-width: 300px;">
                                         <ul class="list-reset p-2">
                                             <li v-for="result in results" class="p-2 border-b text-left">
-                                                <a :href="'/blog/' + result.slug">
+                                                <a :href="result.link">
                                                     <ais-highlight :result="result" attribute-name="title"></ais-highlight>
                                                 </a>
                                             </li>
