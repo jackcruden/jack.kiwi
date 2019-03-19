@@ -33,7 +33,7 @@
 
     <h1>
         @if ($post->published_at)
-            <a href="/blog/{{ $post->slug }}">
+            <a href="{{ $post->link }}">
                 {{ $post->title }}
             </a>
         @else

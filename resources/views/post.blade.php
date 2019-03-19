@@ -1,4 +1,4 @@
-<a href="/blog/{{ $post->slug }}" class="x-item flex-wrap overflow-hidden" style="display: flex !important;">
+<a href="{{ $post->link }}" class="x-item flex-wrap overflow-hidden" style="display: flex !important;">
     <div class="p-3 flex-1">
         <span class="font-medium">
             {{ $post->title }}
