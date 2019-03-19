@@ -1,4 +1,4 @@
-<a href="/projects/{{ $project->slug }}" class="x-item">
+<a href="/projects/{{ $project->slug }}" class="x-item overflow-hidden">
     <div class="p-3">
         <span class="font-medium">{{ $project->title }}</span><br>
         <small class="text-grey-dark">{{ $project->published_at_human }}</small>

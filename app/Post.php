@@ -12,7 +12,7 @@ class Post extends Model implements Feedable
 {
     use Searchable;
 
-    protected $fillable = ['title', 'slug', 'image', 'content', 'is_original', 'published_at'];
+    protected $fillable = ['title', 'slug', 'embed_url', 'image', 'content', 'is_original', 'published_at'];
 
     protected $casts = [
         'published_at' => 'datetime',
@@ -27,6 +27,27 @@ class Post extends Model implements Feedable
     {
         return $query->where('published_at', '<=', new Carbon())
             ->orderBy('published_at', 'desc');
+    }
+
+    public function scopeProject($query)
+    {
+        return $query->whereHas('tags', function ($query) {
+            return $query->whereSlug('project');
+        });
+    }
+
+    public function scopeSketch($query)
+    {
+        return $query->whereHas('tags', function ($query) {
+            return $query->whereSlug('sketch');
+        });
+    }
+
+    public function scopeBlog($query)
+    {
+        return $query->whereHas('tags', function ($query) {
+            return $query->whereSlug('blog');
+        });
     }
 
     public function getMinutesToReadAttribute()
@@ -60,7 +81,14 @@ class Post extends Model implements Feedable
 
     public function getLinkAttribute()
     {
-        return config('app.url').'/blog/'.$this->slug;
+        $type = 'blog';
+        if ($this->tags()->whereSlug('project')->count()) {
+            $type = 'projects';
+        } elseif ($this->tags()->whereSlug('sketch')->count()) {
+            $type = 'sketches';
+        }
+
+        return config('app.url').'/'.$type.'/'.$this->slug;
     }
 
     public static function findBySlug($slug)

@@ -21,7 +21,7 @@
 
             <div class="lg:text-xl mt-4">
                 <ul class="list-reset">
-                    @foreach(App\Tag::all() as $tag)
+                    @foreach(App\Tag::visible()->get() as $tag)
                         <li class="inline-block my-1 p-1 px-2 rounded-lg bg-green">
                             <a href="/tags/{{ $tag->slug }}" class="text-white hover:text-white font-medium">
                                 {{ $tag->name }}
@@ -37,9 +37,22 @@
                 <h2 class="mb-3">Projects</h2>
 
                 <div class="flex flex-wrap -m-2">
-                    @foreach(App\Project::published()->get() as $project)
+                    @foreach(App\Post::project()->published()->get() as $project)
                         <div class="w-full md:w-1/2 xl:w-1/3">
                             @component('project', compact('project'))
+                            @endcomponent
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="my-4">
+                <h2 class="mb-3">Sketches</h2>
+
+                <div class="flex flex-wrap -m-2">
+                    @foreach(App\Post::sketch()->published()->get() as $sketch)
+                        <div class="w-full md:w-1/2 xl:w-1/3">
+                            @component('sketch', compact('sketch'))
                             @endcomponent
                         </div>
                     @endforeach
@@ -50,7 +63,7 @@
                 <h2 class="mb-3">Blog Posts</h2>
 
                 <div class="flex flex-wrap -m-2">
-                    @foreach(App\Post::published()->get() as $post)
+                    @foreach(App\Post::blog()->published()->get() as $post)
                         <div class="w-full">
                             @component('post', compact('post'))
                             @endcomponent

@@ -110,7 +110,7 @@ textarea.x-input {
     min-height: 100px;
     background-size: cover;
     background-position: center center;
-    @apply .block .rounded;
+    @apply .block;
 }
 
 a {
@@ -137,7 +137,7 @@ a {
 
 @apply .leading-tight;
 
-.image-container img {
+.image-container img, .image-container embed {
     @apply .border-4 .border-grey-light .rounded-lg;
 }
 

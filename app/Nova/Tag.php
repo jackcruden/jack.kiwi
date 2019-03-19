@@ -2,12 +2,12 @@
 
 namespace App\Nova;
 
-use Laravel\Nova\Fields\ID;
-use Illuminate\Http\Request;
-use Laravel\Nova\Fields\HasMany;
 use Benjaminhirsch\NovaSlugField\Slug;
-use Laravel\Nova\Fields\BelongsToMany;
 use Benjaminhirsch\NovaSlugField\TextWithSlug;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\ID;
 
 class Tag extends Resource
 {
@@ -56,7 +56,10 @@ class Tag extends Resource
                     'readonly' => true,
                 ]]),
 
-            HasMany::make('Project'),
+            Boolean::make('Is Visible')
+                ->withMeta([
+                    'value' => $this->id ? $this->is_visible : true,
+                ]),
 
             BelongsToMany::make('Posts'),
         ];

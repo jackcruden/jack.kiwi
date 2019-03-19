@@ -3,17 +3,19 @@
 @section('title', $tag->name)
 
 @section('content')
-    <h1>
-        <a href="/tags/{{ $tag->slug }}">
-            <span class="text-grey-dark">Tag:</span>
-            {{ $tag->name }}
-        </a>
-    </h1>
+    @if ($tag->is_visible)
+        <h1>
+            <a href="/tags/{{ $tag->slug }}">
+                <span class="text-grey-dark">Tag:</span>
+                {{ $tag->name }}
+            </a>
+        </h1>
+    @endif
 
-    @if ($tag->project()->published()->count())
-        <h2>Project</h2>
+    @if ($tag->posts()->project()->published()->count())
+        <h2>Projects</h2>
         <div class="flex flex-wrap -m-2">
-            @foreach($tag->project()->published()->get() as $project)
+            @foreach($tag->posts()->project()->published()->get() as $project)
                 <div class="w-1/3">
                     @component('project', compact('project'))
                     @endcomponent
@@ -22,17 +24,27 @@
         </div>
     @endif
 
-    <h2>Blog Posts</h2>
-    @if ($tag->posts()->published()->count())
+    @if ($tag->posts()->sketch()->published()->count())
+        <h2>Sketches</h2>
         <div class="flex flex-wrap -m-2">
-            @foreach($tag->posts()->published()->get() as $post)
+            @foreach($tag->posts()->sketch()->published()->get() as $sketch)
+                <div class="w-1/3">
+                    @component('sketch', compact('sketch'))
+                    @endcomponent
+                </div>
+            @endforeach
+        </div>
+    @endif
+
+    @if ($tag->posts()->blog()->published()->count())
+        <h2>Blog Posts</h2>
+        <div class="flex flex-wrap -m-2">
+            @foreach($tag->posts()->blog()->published()->get() as $post)
                 <div class="w-full">
                     @component('post', compact('post'))
                     @endcomponent
                 </div>
             @endforeach
         </div>
-    @else
-        <p>No blog posts found.</p>
     @endif
 @endsection

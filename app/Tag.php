@@ -8,13 +8,22 @@ class Tag extends Model
 {
     protected $fillable = ['name', 'slug'];
 
-    public function project()
-    {
-        return $this->hasOne(Project::class);
-    }
+    protected $casts = [
+        'is_visible' => 'boolean',
+    ];
 
     public function posts()
     {
         return $this->belongsToMany(Post::class);
+    }
+
+    public static function findBySlug($slug)
+    {
+        return Tag::whereSlug($slug)->firstOrFail();
+    }
+
+    public function scopeVisible($query)
+    {
+        return $query->where('is_visible', true);
     }
 }

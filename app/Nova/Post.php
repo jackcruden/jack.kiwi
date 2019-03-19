@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Markdown;
+use Laravel\Nova\Fields\Text;
 
 class Post extends Resource
 {
@@ -73,6 +74,8 @@ class Post extends Resource
                 ]]),
 
             FilemanagerField::make('Image')->displayAsImage(),
+
+            Text::make('Embed Url'),
 
             Markdown::make('Content')
                 ->sortable()

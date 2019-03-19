@@ -51,6 +51,11 @@
                         </a>
                     </li>
                     <li>
+                        <a href="/sketches" class="@active('sketches*')">
+                            Sketches
+                        </a>
+                    </li>
+                    <li>
                         <a href="/blog" class="@active('blog*')">
                             Blog
                         </a>
