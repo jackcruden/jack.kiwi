@@ -27,7 +27,7 @@
         </div>
     @elseif ($post->image)
         <div class="text-center">
-            <img src="/storage/{{ $post->image }}" alt="{{ $post->title }}" class="inline-block rounded-lg border-4" style="max-height: 420px;">
+            <img src="/storage/{{ $post->image }}" alt="{{ $post->title }}" class="inline-block rounded-lg border-4 w-full">
         </div>
     @endif
 
