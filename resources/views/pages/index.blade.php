@@ -17,7 +17,9 @@
                 <h1>Hi, I'm Jack.</h1>
             </div>
 
-            <p class="text-lg md:text-xl">I'm a full-stack web developer living and working between England and New Zealand.</p>
+            <p class="text-lg md:text-xl">
+                I'm a full-stack web developer and creative coder from Taranaki, New Zealand.
+            </p>
 
             <div class="lg:text-xl mt-4">
                 <ul class="list-reset">
@@ -34,7 +36,7 @@
 
         <div class="flex-1 lg:overflow-y-scroll px-3" style="height: calc(100vh - 55px);">
             <div class="my-4">
-                <h2 class="mb-3">Projects</h2>
+                <h1 class="mb-3">Projects</h1>
 
                 <div class="flex flex-wrap -m-2">
                     @foreach(App\Post::project()->published()->get() as $project)
@@ -47,7 +49,7 @@
             </div>
 
             <div class="my-4">
-                <h2 class="mb-3">Sketches</h2>
+                <h1 class="mb-3">Sketches</h1>
 
                 <div class="flex flex-wrap -m-2">
                     @foreach(App\Post::sketch()->published()->get() as $sketch)
@@ -60,7 +62,7 @@
             </div>
 
             <div>
-                <h2 class="mb-3">Blog Posts</h2>
+                <h1 class="mb-3">Blog</h1>
 
                 <div class="flex flex-wrap -m-2">
                     @foreach(App\Post::blog()->published()->get() as $post)
