@@ -30,6 +30,13 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import moment from 'moment'
+
+Vue.filter('moment', function (value, format) {
+    if (!value) return ''
+    return moment(value).format(format)
+})
+
 const app = new Vue({
     el: '#app',
 });

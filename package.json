@@ -12,19 +12,22 @@
     "devDependencies": {
         "axios": "^0.18",
         "cross-env": "^5.1",
-        "laravel-mix": "^4.0.13",
+        "laravel-mix": "^4.0.15",
         "lodash": "^4.17.5",
-        "popper.js": "^1.12",
-        "sass": "^1.15.2",
+        "moment": "^2.24.0",
+        "popper.js": "^1.14.7",
+        "sass": "^1.17.3",
         "sass-loader": "7.*",
-        "tailwindcss": "^0.7.2",
-        "vue": "^2.5.17",
-        "vue-template-compiler": "^2.5.21",
-        "webpack-bundle-analyzer": "^3.0.3"
+        "tailwindcss": "^0.7.4",
+        "vue": "^2.6.10",
+        "vue-template-compiler": "^2.6.10",
+        "webpack-bundle-analyzer": "^3.1.0"
     },
     "dependencies": {
         "glob-all": "^3.1.0",
+        "mapbox-gl": "^0.53.1",
         "purgecss-webpack-plugin": "^1.4.0",
-        "vue-instantsearch": "^1.7.0"
+        "vue-instantsearch": "^1.7.0",
+        "vue-mapbox": "^0.2.2"
     }
 }

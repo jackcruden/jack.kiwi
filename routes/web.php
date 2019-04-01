@@ -7,7 +7,9 @@ use App\Tag;
 // Auth::routes();
 Route::feeds();
 
+// Pages
 Route::view('/', 'pages.index');
+Route::view('travel', 'pages.travel');
 
 // Projects
 Route::view('projects', 'tags.show', ['tag' => Tag::findBySlug('project')]);
