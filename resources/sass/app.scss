@@ -69,7 +69,7 @@
 body {
     font-family: 'Avenir', sans-serif;
     font-weight: 300;
-    background-color: #fffdf4;
+    background-color: #eaeff3;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .x-input:focus {
     @apply .outline-none;
-    @apply .border-green;
+    @apply .border-grey;
 }
 textarea.x-input {
     @apply .block;
@@ -91,20 +91,39 @@ textarea.x-input {
     @apply .p-2 .text-xl .border-4 .bg-grey-light .rounded-lg;
 }
 .x-button:active {
-    @apply .bg-green;
+    @apply .bg-grey;
 }
 .x-button:focus {
     @apply .outline-none;
-    @apply .border-green;
+    @apply .border-grey;
+}
+
+.x-tag {
+    @apply .inline-block .my-1 .p-1 .px-2 .rounded-lg .bg-grey;
+    transition: all .2s ease-in-out;
+
+    a {
+        @apply .text-white .font-medium;
+    }
+}
+.x-tag:hover {
+    @apply .shadow;
+    transform: scale(1.02);
+
+    a {
+        @apply .text-white;
+    }
 }
 
 /* An item is the project or post preview */
 .x-item {
-    @apply .block .m-2 .bg-white .rounded-lg .no-underline .text-black;
-    @apply .border-4 .border-grey-lighter;
+    @apply .block .m-2 .bg-white .rounded-lg .no-underline;
+    @apply .shadow;
+    transition: all .2s ease-in-out;
 }
 .x-item:hover {
-    @apply .border-green;
+    @apply .shadow-md .border-grey-light;
+    transform: scale(1.02);
 }
 .x-item-image {
     min-height: 100px;
@@ -114,10 +133,9 @@ textarea.x-input {
 }
 
 a {
-    @apply .no-underline;
-    @apply .text-green-dark;
+    @apply .text-grey-darker .no-underline;
     &:hover {
-        @apply .text-green-darker;
+        @apply .text-grey-darker;
     }
 }
 
@@ -131,7 +149,7 @@ a {
         @apply .block .border-b-4 .border-transparent .py-4 .px-4 .text-center .flex-1;
     }
     & > li > a.active {
-        @apply .border-b-4 .border-green;
+        @apply .border-b-4 .border-grey-dark;
     }
 }
 

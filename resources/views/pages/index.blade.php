@@ -24,8 +24,8 @@
             <div class="lg:text-xl mt-4">
                 <ul class="list-reset">
                     @foreach(App\Tag::visible()->get() as $tag)
-                        <li class="inline-block my-1 p-1 px-2 rounded-lg bg-green">
-                            <a href="/tags/{{ $tag->slug }}" class="text-white hover:text-white font-medium">
+                        <li class="x-tag">
+                            <a href="/tags/{{ $tag->slug }}">
                                 {{ $tag->name }}
                             </a>
                         </li>

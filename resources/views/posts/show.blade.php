@@ -21,48 +21,50 @@
 @section('title', $post->title)
 
 @section('content')
-    @if ($post->embed_url)
-        <div class="text-center">
-            <embed src="{{ $post->embed_url }}" class="block rounded-lg border-4 w-full" style="height: 70vh;">
-        </div>
-    @elseif ($post->image)
-        <div class="text-center">
-            <img src="/storage/{{ $post->image }}" alt="{{ $post->title }}" class="inline-block rounded-lg border-4 w-full">
-        </div>
-    @endif
-
-    <h1>
-        @if ($post->published_at)
-            <a href="{{ $post->link }}">
-                {{ $post->title }}
-            </a>
-        @else
-            {{ $post->title }}
+    <div class="bg-white shadow rounded-lg">
+        @if ($post->embed_url)
+            <div class="block text-center rounded-t-lg overflow-hidden">
+                <embed src="{{ $post->embed_url }}" class="w-full" style="height: 70vh;">
+            </div>
+        @elseif ($post->image)
+            <div class="block text-center">
+                <img src="/storage/{{ $post->image }}" alt="{{ $post->title }}" class="block rounded-t-lg w-full">
+            </div>
         @endif
-    </h1>
 
-    @if ($post->published_at)
-        <p class="text-grey-dark">
-            {{ $post->published_at_human }}
-            &nbsp;&middot;&nbsp;
-            {{ $post->minutes_to_read }} minute read
-        </p>
-    @endif
-
-    @if ($post->tags)
-        <ul class="list-reset">
-            @foreach($post->tags()->visible()->get() as $tag)
-                <li class="inline-block my-1 p-1 px-2 rounded-lg border-2 border-green">
-                    <a href="/tags/{{ $tag->slug }}" class="text-green hover:text-green-dark font-medium">
-                        {{ $tag->name }}
+        <div class="p-6">
+            <h1 class="my-0">
+                @if ($post->published_at)
+                    <a href="{{ $post->link }}">
+                        {{ $post->title }}
                     </a>
-                </li>
-            @endforeach
-        </ul>
-    @endif
+                @else
+                    {{ $post->title }}
+                @endif
+            </h1>
 
-    <div class="mt-4 image-container">
-        {!! $post->rendered !!}
+            @if ($post->published_at)
+                <p class="text-grey-dark">
+                    {{ $post->published_at_human }}
+                    &nbsp;&middot;&nbsp;
+                    {{ $post->minutes_to_read }} minute read
+                </p>
+            @endif
+
+            @if ($post->tags)
+                <ul class="list-reset">
+                    @foreach($post->tags()->visible()->get() as $tag)
+                        <li class="x-tag">
+                            <a href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
+
+            <div class="mt-4 image-container">
+                {!! $post->rendered !!}
+            </div>
+        </div>
     </div>
 
     @if (App\Tag::whereSlug($post->slug)->first())
