@@ -27,7 +27,7 @@
 </head>
 <body>
     <div id="app">
-        <div class="sm:flex border-b" style="background-color: #fffdf4;">
+        <div class="sm:flex border-b" style="background-color: #f7fafc;">
             <a href="/" class="flex items-center mt-2 sm:mt-0 text-grey-darkest hover:text-grey-darkest">
                 <div class="pl-3 whitespace-no-wrap">
                     <div class="mb-1">
