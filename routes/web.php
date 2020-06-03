@@ -27,5 +27,8 @@ Route::get('me', function () {
     return view('posts.show', ['post' => Post::findBySlug('me')]);
 });
 
+// Images
+Route::get('storage/{name}.thumbnail.{extension}', 'ImageController@thumbnail');
+
 Route::resource('links', 'LinkController');
 Route::get('{link?}', 'LinkController@show')->where('link', '^(?!nova|horizon.*$).*');

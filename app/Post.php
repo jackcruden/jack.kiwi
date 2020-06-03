@@ -88,6 +88,11 @@ class Post extends Model implements Feedable
         return config('app.url').'/'.$type.'/'.$this->slug;
     }
 
+    public function getImageThumbnailAttribute()
+    {
+        return str_replace('.', '.thumbnail.', $this->image);
+    }
+
     public static function findBySlug($slug)
     {
         return Post::whereSlug($slug)->firstOrFail();

@@ -5,6 +5,6 @@
     </div>
 
     @if ($project->image)
-        <div class="x-item-image" style="background-image: url('/storage/{{ $project->image }}');"></div>
+        <div class="x-item-image" style="background-image: url('/storage/{{ $project->image_thumbnail }}');"></div>
     @endif
 </a>
