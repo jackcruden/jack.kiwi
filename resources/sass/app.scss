@@ -69,7 +69,7 @@
 body {
     font-family: 'Avenir', sans-serif;
     font-weight: 300;
-    background-color: #eaeff3;
+    background-color: #f7fafc;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .x-input:focus {
     @apply .outline-none;
-    @apply .border-grey;
+    @apply .border-green;
 }
 textarea.x-input {
     @apply .block;
@@ -91,15 +91,15 @@ textarea.x-input {
     @apply .p-2 .text-xl .border-4 .bg-grey-light .rounded-lg;
 }
 .x-button:active {
-    @apply .bg-grey;
+    @apply .bg-green;
 }
 .x-button:focus {
     @apply .outline-none;
-    @apply .border-grey;
+    @apply .border-green;
 }
 
 .x-tag {
-    @apply .inline-block .my-1 .p-1 .px-2 .rounded-lg .bg-grey;
+    @apply .inline-block .my-1 .p-1 .px-2 .rounded-lg .bg-green;
     transition: all .2s ease-in-out;
 
     a {
@@ -133,9 +133,9 @@ textarea.x-input {
 }
 
 a {
-    @apply .text-grey-darker .no-underline;
+    @apply .text-green-darker .no-underline;
     &:hover {
-        @apply .text-grey-darker;
+        @apply .text-green-darker;
     }
 }
 
@@ -146,10 +146,10 @@ a {
         @apply .inline-block;
     }
     & > li > a {
-        @apply .block .border-b-4 .border-transparent .py-4 .px-4 .text-center .flex-1;
+        @apply .block .border-b-4 .border-transparent .py-4 .px-4 .text-center .flex-1 .text-green-dark;
     }
     & > li > a.active {
-        @apply .border-b-4 .border-grey-dark;
+        @apply .border-b-4 .border-green;
     }
 }
 
