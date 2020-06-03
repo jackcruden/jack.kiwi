@@ -25,8 +25,6 @@ class ImageController extends Controller
             Storage::put('public/'.$name.'.thumbnail.'.$extension, $image);
         }
 
-        dd('yowsa');
-
         return Storage::download('public/'.$name.'.thumbnail.'.$extension);
     }
 }
