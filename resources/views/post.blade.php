@@ -22,7 +22,7 @@
     @if ($post->image)
         <div class="x-item-image w-full sm:w-1/5" style="
             min-width: 250px;
-            background-image: url('/storage/{{ $post->image }}');
+            background-image: url('/storage/{{ $post->image_thumbnail }}');
         ">
         </div>
     @endif

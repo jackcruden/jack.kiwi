@@ -29,6 +29,7 @@ Route::get('me', function () {
 
 // Images
 Route::get('storage/{name}.thumbnail.{extension}', 'ImageController@thumbnail');
+Route::get('storage/sketches/{name}.thumbnail.{extension}', 'ImageController@sketchThumbnail');
 
 Route::resource('links', 'LinkController');
 Route::get('{link?}', 'LinkController@show')->where('link', '^(?!nova|horizon.*$).*');
