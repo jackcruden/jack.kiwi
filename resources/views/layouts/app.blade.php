@@ -76,7 +76,7 @@
                                 <ais-input placeholder="Search&hellip;" class="w-full p-2 border rounded-lg text-sm"></ais-input>
 
                                 <ais-results inline-template>
-                                    <div v-show="searchStore.query.length > 0" class="absolute w-auto mt-1 pin-r bg-white rounded-lg border mr-3" style="max-width: 300px;">
+                                    <div v-show="searchStore.query.length > 0" class="absolute w-auto mt-1 pin-r bg-white rounded-lg border mr-3" style="width: 300px;">
                                         <ul class="list-reset p-2">
                                             <li v-for="result in results" class="p-2 border-b text-left">
                                                 <a :href="result.link">
@@ -91,8 +91,9 @@
                                         </ul>
                                     </div>
                                 </ais-results>
+
                                 <ais-no-results>
-                                    <div class="absolute mt-1 pin-r mr-3 bg-white rounded-lg border w-auto" style="max-width: 300px;">
+                                    <div class="absolute mt-1 pin-r mr-3 bg-white rounded-lg border w-auto" style="width: 300px;">
                                         <ul class="list-reset p-2">
                                             <li class="p-2 border-b">
                                                 No posts found.

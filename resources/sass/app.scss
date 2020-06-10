@@ -133,9 +133,9 @@ textarea.x-input {
 }
 
 a {
-    @apply .text-green-darker .no-underline;
+    @apply .text-green .no-underline;
     &:hover {
-        @apply .text-green-darker;
+        @apply .text-green-dark;
     }
 }
 
