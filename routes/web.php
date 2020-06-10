@@ -28,6 +28,7 @@ Route::get('me', function () {
 });
 
 // Images
+Route::get('storage/{name}.thumbnail.{extension}.webp', 'ImageController@webpThumbnail');
 Route::get('storage/{name}.thumbnail.{extension}', 'ImageController@thumbnail');
 Route::get('storage/{name}.{extension}.webp', 'ImageController@webp');
 
