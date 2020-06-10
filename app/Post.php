@@ -4,6 +4,7 @@ namespace App;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 use Laravel\Scout\Searchable;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
@@ -88,9 +89,18 @@ class Post extends Model implements Feedable
         return config('app.url').'/'.$type.'/'.$this->slug;
     }
 
+    public function getImageAttribute($value)
+    {
+        if (Str::contains(request()->header('accept'), 'image/webp')) {
+            return $value.'.webp';
+        }
+
+        return $value;
+    }
+
     public function getImageThumbnailAttribute()
     {
-        return str_replace('.', '.thumbnail.', $this->image);
+        return preg_replace('/\./', '.thumbnail.', $this->image, 1);
     }
 
     public static function findBySlug($slug)
