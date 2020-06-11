@@ -19,7 +19,7 @@ class Tag extends Model
 
     public static function findBySlug($slug)
     {
-        return Tag::whereSlug($slug)->firstOrFail();
+        return self::whereSlug($slug)->firstOrFail();
     }
 
     public function scopeVisible($query)

@@ -105,12 +105,12 @@ class Post extends Model implements Feedable
 
     public static function findBySlug($slug)
     {
-        return Post::whereSlug($slug)->firstOrFail();
+        return self::whereSlug($slug)->firstOrFail();
     }
 
     public static function getAllFeedItems()
     {
-        return Post::published()->get();
+        return self::published()->get();
     }
 
     public function toFeedItem()
