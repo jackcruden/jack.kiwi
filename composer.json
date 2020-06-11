@@ -27,7 +27,8 @@
         "laravel/scout": "^6.1",
         "laravel/tinker": "^1.0",
         "spatie/laravel-feed": "^2.1",
-        "spatie/nova-tags-field": "^1.1"
+        "spatie/nova-tags-field": "^1.1",
+        "laravel/ui": "^2.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
