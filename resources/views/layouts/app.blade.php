@@ -65,50 +65,50 @@
                             Me
                         </a>
                     </li>
-                    <li class="w-auto pl-4 pr-4">
-                        <div class="w-full">
-                            <ais-index
-                                app-id="ZX7KWEFAEQ"
-                                api-key="0485e1f4466829a42b7c31ee225e7e16"
-                                index-name="posts"
-                                :auto-search="false"
-                            >
-                                <ais-input placeholder="Search&hellip;" class="w-full p-2 border rounded-lg text-sm"></ais-input>
+{{--                    <li class="w-auto pl-4 pr-4">--}}
+{{--                        <div class="w-full">--}}
+{{--                            <ais-index--}}
+{{--                                app-id="ZX7KWEFAEQ"--}}
+{{--                                api-key="0485e1f4466829a42b7c31ee225e7e16"--}}
+{{--                                index-name="posts"--}}
+{{--                                :auto-search="false"--}}
+{{--                            >--}}
+{{--                                <ais-input placeholder="Search&hellip;" class="w-full p-2 border rounded-lg text-sm"></ais-input>--}}
 
-                                <ais-results inline-template>
-                                    <div v-show="searchStore.query.length > 0" class="absolute w-auto mt-1 pin-r bg-white rounded-lg border mr-3" style="width: 300px;">
-                                        <ul class="list-reset p-2">
-                                            <li v-for="result in results" class="p-2 border-b text-left">
-                                                <a :href="result.link">
-                                                    <ais-highlight :result="result" attribute-name="title"></ais-highlight>
-                                                </a>
-                                            </li>
-                                            <li class="pt-2 pr-2 text-right">
-                                                <a href="https://algolia.com" target="_blank" rel="noopener">
-                                                    <img src="/images/algolia.svg" class="h-4">
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </ais-results>
+{{--                                <ais-results inline-template>--}}
+{{--                                    <div v-show="searchStore.query.length > 0" class="absolute w-auto mt-1 pin-r bg-white rounded-lg border mr-3" style="width: 300px;">--}}
+{{--                                        <ul class="list-reset p-2">--}}
+{{--                                            <li v-for="result in results" class="p-2 border-b text-left">--}}
+{{--                                                <a :href="result.link">--}}
+{{--                                                    <ais-highlight :result="result" attribute-name="title"></ais-highlight>--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+{{--                                            <li class="pt-2 pr-2 text-right">--}}
+{{--                                                <a href="https://algolia.com" target="_blank" rel="noopener">--}}
+{{--                                                    <img src="/images/algolia.svg" class="h-4">--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </ais-results>--}}
 
-                                <ais-no-results>
-                                    <div class="absolute mt-1 pin-r mr-3 bg-white rounded-lg border w-auto" style="width: 300px;">
-                                        <ul class="list-reset p-2">
-                                            <li class="p-2 border-b">
-                                                No posts found.
-                                            </li>
-                                            <li class="pt-2 pr-2 text-right">
-                                                <a href="https://algolia.com" target="_blank">
-                                                    <img src="/images/algolia.svg" class="h-4">
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </ais-no-results>
-                            </ais-index>
-                        </div>
-                    </li>
+{{--                                <ais-no-results>--}}
+{{--                                    <div class="absolute mt-1 pin-r mr-3 bg-white rounded-lg border w-auto" style="width: 300px;">--}}
+{{--                                        <ul class="list-reset p-2">--}}
+{{--                                            <li class="p-2 border-b">--}}
+{{--                                                No posts found.--}}
+{{--                                            </li>--}}
+{{--                                            <li class="pt-2 pr-2 text-right">--}}
+{{--                                                <a href="https://algolia.com" target="_blank">--}}
+{{--                                                    <img src="/images/algolia.svg" class="h-4">--}}
+{{--                                                </a>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                </ais-no-results>--}}
+{{--                            </ais-index>--}}
+{{--                        </div>--}}
+{{--                    </li>--}}
                 </ul>
             </nav>
         </div>
@@ -142,7 +142,7 @@
         @endif
     </div>
 
-    <script src="{{ mix('/js/app.js') }}" defer></script>
+{{--    <script src="{{ mix('/js/app.js') }}" defer></script>--}}
 
     @yield('footer')
 </body>
