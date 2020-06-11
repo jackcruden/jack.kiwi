@@ -29,7 +29,6 @@
         "spatie/laravel-feed": "^2.6",
         "spatie/nova-tags-field": "^3.0",
         "laravel/ui": "^2.0",
-        "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
