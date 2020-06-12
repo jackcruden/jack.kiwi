@@ -10,7 +10,7 @@ class ImageController extends Controller
 {
     public function thumbnail(Request $request, $name, $extension)
     {
-        if (! Storage::exists('public/'.$name.'.thumbnail.'.$extension)) {
+        if (! Storage::exists('public/'.$name.'.'.$extension)) {
             abort(404);
         }
 
