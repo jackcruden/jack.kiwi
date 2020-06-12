@@ -64,14 +64,15 @@ class Post extends Resource
             ID::make()->sortable(),
 
             TextWithSlug::make('Title')
+                ->slug('slug')
                 ->sortable()
-                ->rules('required', 'max:120')
-                ->slug('Slug'),
+                ->rules('required', 'max:120'),
 
             Slug::make('Slug')
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true,
                 ]])
+                ->showUrlPreview(config('app.url'))
                 ->hideFromIndex(),
 
             FilemanagerField::make('Image')->displayAsImage(),

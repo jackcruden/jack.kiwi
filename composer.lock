@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eca3807a4660a40acacc75d7da081334",
+    "content-hash": "9a6551738a3d58e03d1defe195b4584a",
     "packages": [
         {
             "name": "algolia/algoliasearch-client-php",
@@ -1135,20 +1135,20 @@
         },
         {
             "name": "infinety-es/nova-filemanager",
-            "version": "1.1.1",
+            "version": "2.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/InfinetyEs/Nova-Filemanager.git",
-                "reference": "d7135f712de3cf4b91501e65a2efe1f2ac47ec71"
+                "reference": "b6b03ebffc9409afbfcf245d85d0dd5c45b48f2c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/InfinetyEs/Nova-Filemanager/zipball/d7135f712de3cf4b91501e65a2efe1f2ac47ec71",
-                "reference": "d7135f712de3cf4b91501e65a2efe1f2ac47ec71",
+                "url": "https://api.github.com/repos/InfinetyEs/Nova-Filemanager/zipball/b6b03ebffc9409afbfcf245d85d0dd5c45b48f2c",
+                "reference": "b6b03ebffc9409afbfcf245d85d0dd5c45b48f2c",
                 "shasum": ""
             },
             "require": {
-                "laravel/nova": "*",
+                "laravel/nova": "~2.0|~3.0",
                 "php": ">=7.1.0"
             },
             "require-dev": {
@@ -1185,13 +1185,13 @@
                 }
             ],
             "description": "Filemanager tool for Laravel Nova",
-            "homepage": "https://github.com/krato/nova-filemanager",
+            "homepage": "https://github.com/InfinetyEs/nova-filemanager",
             "keywords": [
                 "filemanager",
                 "laravel",
                 "nova"
             ],
-            "time": "2018-10-09T08:24:30+00:00"
+            "time": "2020-06-09T06:22:25+00:00"
         },
         {
             "name": "intervention/image",
@@ -2903,16 +2903,16 @@
         },
         {
             "name": "spatie/laravel-feed",
-            "version": "2.6.2",
+            "version": "2.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-feed.git",
-                "reference": "58596045035f9f2ec2cd64a16c23352807ee4c09"
+                "reference": "287991a339b98274df56098fa4249afa3ac26211"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-feed/zipball/58596045035f9f2ec2cd64a16c23352807ee4c09",
-                "reference": "58596045035f9f2ec2cd64a16c23352807ee4c09",
+                "url": "https://api.github.com/repos/spatie/laravel-feed/zipball/287991a339b98274df56098fa4249afa3ac26211",
+                "reference": "287991a339b98274df56098fa4249afa3ac26211",
                 "shasum": ""
             },
             "require": {
@@ -2922,6 +2922,7 @@
                 "php": "^7.2"
             },
             "require-dev": {
+                "orchestra/testbench": "~3.8.0|^4.0|^5.0",
                 "phpunit/phpunit": "^8.0",
                 "spatie/phpunit-snapshot-assertions": "^2.0"
             },
@@ -2970,7 +2971,7 @@
                 "rss",
                 "spatie"
             ],
-            "time": "2020-04-23T07:40:56+00:00"
+            "time": "2020-06-11T22:56:36+00:00"
         },
         {
             "name": "spatie/laravel-tags",

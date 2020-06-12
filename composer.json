@@ -16,11 +16,11 @@
     "require": {
         "php": "^7.2.5",
         "algolia/algoliasearch-client-php": "^1.27",
-        "benjaminhirsch/nova-slug-field": "^1.1",
+        "benjaminhirsch/nova-slug-field": "^1.2.4",
         "carlson/nova-link-field": "^1.0",
         "erusev/parsedown": "^1.7",
         "fideloper/proxy": "^4.2",
-        "infinety-es/nova-filemanager": "^1.1",
+        "infinety-es/nova-filemanager": "^2.8.1",
         "intervention/image": "^2.5",
         "laravel/framework": "^7.14",
         "laravel/nova": "^3.0",
