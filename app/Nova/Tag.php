@@ -49,12 +49,13 @@ class Tag extends Resource
             TextWithSlug::make('Name')
                 ->sortable()
                 ->rules('required', 'max:120')
-                ->slug('Slug'),
+                ->slug('slug'),
 
             Slug::make('Slug')
                 ->withMeta(['extraAttributes' => [
                     'readonly' => true,
-                ]]),
+                ]])
+                ->showUrlPreview(config('app.url').'/tags'),
 
             Boolean::make('Is Visible')
                 ->withMeta([
