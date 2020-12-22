@@ -11,8 +11,6 @@ use Spatie\Feed\FeedItem;
 
 class Post extends Model implements Feedable
 {
-    use Searchable;
-
     protected $fillable = ['title', 'slug', 'embed_url', 'image', 'content', 'is_original', 'published_at'];
 
     protected $appends = ['link'];
@@ -113,10 +111,5 @@ class Post extends Model implements Feedable
             ->updated($this->published_at)
             ->link($this->link)
             ->author('Jack Cruden');
-    }
-
-    public function shouldBeSearchable()
-    {
-        return ! empty($this->published_at);
     }
 }

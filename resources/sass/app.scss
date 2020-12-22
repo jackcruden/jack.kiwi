@@ -143,7 +143,7 @@ a {
     @apply .list-reset .block .justify-end .items-center .overflow-x-auto .overflow-y-visible .whitespace-no-wrap;
 
     & > li {
-        @apply .inline-block;
+        @apply .inline-block .my-0 .leading-normal .text-base;
     }
     & > li > a {
         @apply .block .border-b-4 .border-transparent .py-4 .px-4 .text-center .flex-1 .text-green-dark;
@@ -178,6 +178,9 @@ hr {
 }
 p {
     @apply .my-2 .leading-normal .text-lg;
+}
+li {
+    @apply .my-1 .leading-normal .text-lg;
 }
 pre {
     @apply .block;
