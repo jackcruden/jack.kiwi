@@ -207,7 +207,10 @@ table {
     }
 }
 
-
+// Turbolinks progress bar
+.turbolinks-progress-bar {
+    @apply .bg-green;
+}
 
 
 
