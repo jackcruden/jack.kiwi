@@ -179,8 +179,11 @@ hr {
 p {
     @apply .my-2 .leading-normal .text-lg;
 }
-li {
-    @apply .my-1 .leading-normal .text-lg;
+ul > li {
+    @apply .leading-normal .text-lg;
+}
+ol > li {
+    @apply .my-2 .leading-normal .text-lg;
 }
 pre {
     @apply .block;
