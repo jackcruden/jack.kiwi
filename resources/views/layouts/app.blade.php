@@ -17,6 +17,7 @@
     <title>@yield('title', 'Jack Cruden') - jack.kiwi</title>
     <meta name="description" content="Jack Cruden's portfolio & blog">
     <link rel="icon" href="/images/kiwifruit.png">
+    <link href="https://github.com/jackcruden" rel="me">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
