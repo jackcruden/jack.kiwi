@@ -20,16 +20,17 @@
         "carlson/nova-link-field": "^1.0",
         "erusev/parsedown": "^1.7",
         "fideloper/proxy": "^4.2",
+        "guzzlehttp/guzzle": "^6.3",
         "infinety-es/nova-filemanager": "^2.8.1",
         "intervention/image": "^2.5",
         "laravel/framework": "^7.14",
         "laravel/nova": "^3.0",
         "laravel/scout": "^8.0",
         "laravel/tinker": "^2.0",
-        "spatie/laravel-feed": "^2.6",
-        "spatie/nova-tags-field": "^3.0",
         "laravel/ui": "^2.0",
-        "guzzlehttp/guzzle": "^6.3"
+        "sentry/sentry-laravel": "^2.7",
+        "spatie/laravel-feed": "^2.6",
+        "spatie/nova-tags-field": "^3.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
