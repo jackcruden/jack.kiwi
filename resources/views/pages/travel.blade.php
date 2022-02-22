@@ -13,5 +13,5 @@
 @section('title', 'Travel')
 
 @section('app')
-    <travel :places="{{ App\Place::orderBy('start_date', 'desc')->get() }}" />
+    <travel :places="{{ App\Models\Place::orderBy('start_date', 'desc')->get() }}" />
 @endsection

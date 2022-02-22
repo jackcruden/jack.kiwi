@@ -67,12 +67,12 @@
         </div>
     </div>
 
-    @if (App\Tag::whereSlug($post->slug)->first())
-        @if (App\Tag::findBySlug($post->slug)->posts()->blog()->published()->count())
+    @if (App\Models\Tag::whereSlug($post->slug)->first())
+        @if (App\Models\Tag::findBySlug($post->slug)->posts()->blog()->published()->count())
             <h2 class="mt-8 mb-3">More about {{ $post->title }}&hellip;</h2>
 
             <div class="flex flex-wrap -m-2">
-                @foreach (App\Tag::findBySlug($post->slug)->posts()->blog()->published()->get() as $post)
+                @foreach (App\Models\Tag::findBySlug($post->slug)->posts()->blog()->published()->get() as $post)
                     <div class="w-full">
                         @component ('post', compact('post'))
                         @endcomponent

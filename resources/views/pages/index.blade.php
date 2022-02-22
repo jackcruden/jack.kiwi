@@ -23,7 +23,7 @@
 
             <div class="lg:text-xl mt-4">
                 <ul class="list-reset">
-                    @foreach(App\Tag::visible()->get() as $tag)
+                    @foreach(App\Models\Tag::visible()->get() as $tag)
                         <li class="x-tag">
                             <a href="/tags/{{ $tag->slug }}">
                                 {{ $tag->name }}
@@ -39,7 +39,7 @@
                 <h1 class="mb-3">Projects</h1>
 
                 <div class="flex flex-wrap -m-2">
-                    @foreach(App\Post::project()->published()->get() as $project)
+                    @foreach(App\Models\Post::project()->published()->get() as $project)
                         <div class="w-full md:w-1/2 xl:w-1/3">
                             @component('project', compact('project'))
                             @endcomponent
@@ -52,7 +52,7 @@
                 <h1 class="mb-3">Sketches</h1>
 
                 <div class="flex flex-wrap -m-2">
-                    @foreach(App\Post::sketch()->published()->get() as $sketch)
+                    @foreach(App\Models\Post::sketch()->published()->get() as $sketch)
                         <div class="w-1/2 sm:w-1/4 lg:w-1/3 xl:w-1/4">
                             @component('sketch', compact('sketch'))
                             @endcomponent
@@ -65,7 +65,7 @@
                 <h1 class="mb-3">Blog</h1>
 
                 <div class="flex flex-wrap -m-2">
-                    @foreach(App\Post::blog()->published()->get() as $post)
+                    @foreach(App\Models\Post::blog()->published()->get() as $post)
                         <div class="w-full">
                             @component('post', compact('post'))
                             @endcomponent

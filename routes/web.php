@@ -3,8 +3,8 @@
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\TagController;
-use App\Post;
-use App\Tag;
+use App\Models\Post;
+use App\Models\Tag;
 
 Auth::routes();
 Route::feeds();
