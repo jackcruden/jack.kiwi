@@ -14,11 +14,15 @@ Route::view('/', 'pages.index');
 Route::view('travel', 'pages.travel');
 
 // Projects
-Route::view('projects', 'tags.show', ['tag' => Tag::findBySlug('project')]);
+Route::get('projects', function () {
+    return view('tags.show', ['tag' => Tag::findBySlug('project')]);
+});
 Route::view('projects/{post}', 'posts.show');
 
 // Sketches
-Route::view('sketches', 'tags.show', ['tag' => Tag::findBySlug('sketch')]);
+Route::get('sketches', function () {
+    return view('tags.show', ['tag' => Tag::findBySlug('sketch')]);
+});
 Route::view('sketches/{post}', 'posts.show');
 
 // Blog
