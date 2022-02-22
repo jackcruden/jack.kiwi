@@ -1,12 +1,15 @@
 <?php
 
+use App\Models\Post;
+
 return [
     'feeds' => [
         'blog' => [
-            'items' => App\Models\Post::class.'@getAllFeedItems',
+            'items' => [Post::class, 'getAllFeedItems'],
             'url'   => '/feed',
             'title' => 'jack.kiwi - Blog',
             'view'  => 'feed::feed',
+            'format' => 'atom',
         ],
     ],
 ];

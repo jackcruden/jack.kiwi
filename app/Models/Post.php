@@ -9,7 +9,7 @@ use Laravel\Scout\Searchable;
 use Spatie\Feed\Feedable;
 use Spatie\Feed\FeedItem;
 
-class Post extends Model implements Feedable
+class Post extends Model
 {
     protected $fillable = ['title', 'slug', 'embed_url', 'image', 'content', 'is_original', 'published_at'];
 
@@ -102,6 +102,11 @@ class Post extends Model implements Feedable
         return self::published()->get();
     }
 
+    /**
+     * TODO
+     *
+     * @return mixed
+     */
     public function toFeedItem()
     {
         return FeedItem::create()

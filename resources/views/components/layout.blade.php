@@ -18,7 +18,7 @@
 
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 
-    @yield('head')
+    {{ $head ?? '' }}
 </head>
 <body>
     <div id="app">
@@ -84,16 +84,10 @@
             </div>
         @endif
 
-        @yield('app')
-
-        @if (trim($__env->yieldContent('content')))
-            <div class="mx-auto px-3 max-w-xl my-6 lg:my-12">
-                @yield('content')
-            </div>
-        @endif
+        <div class="mx-auto px-3 max-w-xl my-6 lg:my-12">
+            {{ $slot }}
+        </div>
     </div>
-
-    @yield('footer')
 
     {{--    <script src="{{ mix('/js/app.js') }}" defer></script>--}}
 </body>

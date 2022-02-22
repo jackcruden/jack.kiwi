@@ -1,3 +1,5 @@
+@props(['project'])
+
 <a href="/projects/{{ $project->slug }}" class="x-item overflow-hidden">
     <div class="p-3">
         <span class="font-medium">{{ $project->title }}</span><br>
