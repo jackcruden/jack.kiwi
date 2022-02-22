@@ -3,14 +3,13 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
-use Laravel\Scout\Searchable;
-use Spatie\Feed\Feedable;
-use Spatie\Feed\FeedItem;
 
 class Post extends Model
 {
+    use HasFactory;
+
     protected $fillable = ['title', 'slug', 'embed_url', 'image', 'content', 'is_original', 'published_at'];
 
     protected $appends = ['link'];
@@ -18,6 +17,11 @@ class Post extends Model
     protected $casts = [
         'published_at' => 'datetime',
     ];
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 
     public function tags()
     {
@@ -107,14 +111,14 @@ class Post extends Model
      *
      * @return mixed
      */
-    public function toFeedItem()
-    {
-        return FeedItem::create()
-            ->id($this->id)
-            ->title($this->title)
-            ->summary($this->rendered)
-            ->updated($this->published_at)
-            ->link($this->link)
-            ->author('Jack Cruden');
-    }
+//    public function toFeedItem()
+//    {
+//        return FeedItem::create()
+//            ->id($this->id)
+//            ->title($this->title)
+//            ->summary($this->rendered)
+//            ->updated($this->published_at)
+//            ->link($this->link)
+//            ->author('Jack Cruden');
+//    }
 }

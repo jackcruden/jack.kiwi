@@ -66,8 +66,7 @@
                 <div class="flex flex-wrap -m-2">
                     @foreach(App\Models\Post::blog()->published()->get() as $post)
                         <div class="w-full">
-                            @component('post', compact('post'))
-                            @endcomponent
+                            <x-post :post="$post" />
                         </div>
                     @endforeach
                 </div>

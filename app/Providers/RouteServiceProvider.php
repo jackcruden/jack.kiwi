@@ -41,15 +41,15 @@ class RouteServiceProvider extends ServiceProvider
         });
 
         Route::bind('post', function ($slug) {
-            return Post::where('slug', $slug)->first() ?? abort(404);
+            return Post::where('slug', $slug)->firstOrFail();
         });
 
         Route::bind('tag', function ($slug) {
-            return Tag::where('slug', $slug)->first() ?? abort(404);
+            return Tag::where('slug', $slug)->firstOrFail();
         });
 
         Route::bind('project', function ($slug) {
-            return Project::where('slug', $slug)->first() ?? abort(404);
+            return Post::where('slug', $slug)->firstOrFail();
         });
     }
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\LinkController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\TagController;
 use App\Models\Post;
 use App\Models\Tag;
@@ -10,14 +11,14 @@ Auth::routes();
 Route::feeds();
 
 // Pages
-Route::view('/', 'pages.index');
+Route::view('/', 'pages.index')->name('home');
 Route::view('travel', 'pages.travel');
 
 // Projects
 Route::get('projects', function () {
     return view('tags.show', ['tag' => Tag::findBySlug('project')]);
 });
-Route::view('projects/{post}', 'posts.show');
+Route::resource('projects', PostController::class)->only('show');
 
 // Sketches
 Route::get('sketches', function () {
