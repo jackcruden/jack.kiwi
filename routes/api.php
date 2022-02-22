@@ -11,4 +11,3 @@
 |
 */
 
-Route::post('links', 'LinkAPIController@store');

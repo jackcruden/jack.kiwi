@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\LinkController;
 use App\Http\Controllers\TagController;
 use App\Post;
 use App\Tag;
 
-// Auth::routes();
+Auth::routes();
 Route::feeds();
 
 // Pages
@@ -28,7 +30,7 @@ Route::get('me', function () {
 });
 
 // Images
-Route::get('storage/{name}.thumbnail.{extension}', 'ImageController@thumbnail');
+Route::get('storage/{name}.thumbnail.{extension}', [ImageController::class, 'thumbnail']);
 
-Route::resource('links', 'LinkController');
-Route::get('{link?}', 'LinkController@show')->where('link', '^(?!nova|horizon.*$).*');
+Route::resource('links', LinkController::class);
+Route::get('{link?}', [LinkController::class, 'show'])->where('link', '^(?!nova|horizon.*$).*');
