@@ -3,7 +3,7 @@
 return [
     'feeds' => [
         'blog' => [
-            'items' => App\Post::class.'@getAllFeedItems',
+            'items' => App\Models\Post::class.'@getAllFeedItems',
             'url'   => '/feed',
             'title' => 'jack.kiwi - Blog',
             'view'  => 'feed::feed',

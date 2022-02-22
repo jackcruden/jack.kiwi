@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use App\Post;
+use App\Models\Post;
 use App\Project;
-use App\Tag;
+use App\Models\Tag;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\RateLimiter;

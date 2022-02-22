@@ -6,7 +6,7 @@
     <h1>Blog</h1>
 
     <div class="flex flex-wrap -m-2">
-        @foreach(App\Post::published()->get() as $post)
+        @foreach(App\Models\Post::published()->get() as $post)
             <div class="w-full">
                 @component('post', compact('post'))
                 @endcomponent
