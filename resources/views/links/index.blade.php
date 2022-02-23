@@ -3,14 +3,12 @@
 @section('title', 'Links')
 
 @section('content')
-    <h1>
-        Links
-    </h1>
+    <h1>Links</h1>
 
     <form method="post" action="/links" class="w-full flex">
         @csrf
         <div class="flex-1 mr-3">
-            <input type="text" name="url" placeholder="https://..." class="x-input w-full">
+            <x-input.text type="text" name="url" placeholder="https://..." />
         </div>
         <div class="flex-1 flex">
             <div class="flex-1 mr-3">

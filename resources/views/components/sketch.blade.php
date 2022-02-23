@@ -1,3 +1,5 @@
+@props(['sketch'])
+
 <a href="/sketches/{{ $sketch->slug }}" class="x-item overflow-hidden">
 
     @if ($sketch->image)

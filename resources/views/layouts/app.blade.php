@@ -16,7 +16,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     @yield('head')
 </head>
@@ -94,7 +94,5 @@
     </div>
 
     @yield('footer')
-
-    {{--    <script src="{{ mix('/js/app.js') }}" defer></script>--}}
 </body>
 </html>

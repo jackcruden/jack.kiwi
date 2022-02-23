@@ -11,7 +11,7 @@
         <meta property="og:image" content="{{ config('app.url').'/images/kiwifruit_white.png' }}"/>
     </x-slot:head>
 
-    <div class="flex flex-wrap container mx-auto" style="min-height: calc(100vh - 55px);">
+    <div class="flex flex-wrap container mx-auto">
         <div class="w-full lg:max-w-sm self-center p-4">
             <div class="text-xl md:text-3xl">
                 <h1>Hi, I'm Jack.</h1>
@@ -24,8 +24,8 @@
             <div class="lg:text-xl mt-4">
                 <ul class="list-reset">
                     @foreach(App\Models\Tag::visible()->get() as $tag)
-                        <li class="x-tag">
-                            <a href="/tags/{{ $tag->slug }}">
+                        <li class="inline-block p-2 px-3 rounded-full bg-green hover:shadow">
+                            <a href="/tags/{{ $tag->slug }}" class="text-white font-medium hover:text-white">
                                 {{ $tag->name }}
                             </a>
                         </li>
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div class="flex-1 lg:overflow-y-scroll px-3" style="height: calc(100vh - 55px);">
+        <div class="flex-1 lg:overflow-y-scroll px-3">
             <div class="my-4">
                 <h1 class="mb-3">Projects</h1>
 
@@ -53,8 +53,7 @@
                 <div class="flex flex-wrap -m-2">
                     @foreach(App\Models\Post::sketch()->published()->get() as $sketch)
                         <div class="w-1/2 sm:w-1/4 lg:w-1/3 xl:w-1/4">
-                            @component('sketch', compact('sketch'))
-                            @endcomponent
+                            <x-sketch :sketch="$sketch" />
                         </div>
                     @endforeach
                 </div>
