@@ -16,50 +16,45 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+
+    <!-- SimpleMDE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
 
     {{ $head ?? '' }}
+
+    @livewireStyles
 </head>
 <body>
-    <div id="app">
-        <div class="sm:flex border-b">
-            <a href="/" class="flex items-center mt-2 sm:mt-0 text-grey-darkest hover:text-grey-darkest">
-                <div class="pl-3 whitespace-no-wrap">
-                    <div class="mb-1">
-                        <img src="/images/kiwifruit.svg" class="w-4 align-middle" alt="Kiwifruit">
-                        <strong>jack.kiwi</strong>
-                    </div>
-                    <div class="text-xs text-grey-darker">Jack Cruden's portfolio & blog</div>
+    @auth
+        <div class="bg-green-500 font-medium text-white text-center">
+            You are logged in as {{ auth()->user()->name }}.
+            <form action="{{ route('logout') }}" method="post" class="inline">
+                @csrf
+                <button type="submit" class="">
+                    Logout
+                </button>
+            </form>
+        </div>
+    @endauth
+
+    <div>
+        <div class="sm:flex items-center align-middle px-6 border-b">
+            <a href="{{ route('home') }}" class="text-center sm:text-left">
+                <div class="flex space-x-2 text-center place-content-center sm:place-content-start">
+                    <img src="/images/kiwifruit.svg" class="w-6 align-middle" alt="Kiwifruit">
+                    <div class="text-xl font-black">jack.kiwi</div>
                 </div>
+                <div class="text-sm">Jack Cruden's portfolio & blog</div>
             </a>
 
-            <nav class="flex-1 text-right justify-end items-center overflow-y-visible overflow-x-hidden">
-                <ul class="x-navigation">
-                    <li>
-                        <a href="/" class="@active('/')">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/projects" class="@active('projects*')">
-                            Projects
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/sketches" class="@active('sketches*')">
-                            Sketches
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/blog" class="@active('blog*')">
-                            Blog
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/me" class="@active('me')">
-                            Me
-                        </a>
-                    </li>
+            <nav class="flex-1 text-center sm:text-right justify-end items-center overflow-y-visible overflow-x-hidden">
+                <ul class="list-reset block justify-end items-center overflow-x-auto overflow-y-visible whitespace-no-wrap">
+                    <x-menu.item label="Home" :url="route('home')" :active="request()->is('/')" />
+                    <x-menu.item label="Projects" :url="route('projects')" :active="request()->is('projects*')" />
+                    <x-menu.item label="Sketches" :url="route('sketches')" :active="request()->is('sketches*')" />
+                    <x-menu.item label="Blog" :url="route('blog')" :active="request()->is('blog*')" />
+                    <x-menu.item label="Me" :url="route('me')" :active="request()->is('me*')" />
                 </ul>
             </nav>
         </div>
@@ -84,11 +79,15 @@
             </div>
         @endif
 
-        <div class="mx-auto px-3 max-w-xl my-6 lg:my-12">
+        <div class="mx-auto px-3 my-6 lg:my-12">
             {{ $slot }}
         </div>
     </div>
 
-    {{--    <script src="{{ mix('/js/app.js') }}" defer></script>--}}
+    @livewireScripts
+    <!-- SimpleMDE -->
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+
+    <script src="{{ asset('/js/app.js') }}"></script>
 </body>
 </html>

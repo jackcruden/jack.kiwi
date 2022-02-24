@@ -1,16 +1,13 @@
-@extends('layouts.app')
-
-@section('title', 'Blog')
-
-@section('content')
-    <h1>Blog</h1>
+<x-layout.page title="Blog">
+    <x-slot:action>
+        <x-button :href="route('posts.create')">Create a Post</x-button>
+    </x-slot:action>
 
     <div class="flex flex-wrap -m-2">
         @foreach(App\Models\Post::published()->get() as $post)
             <div class="w-full">
-                @component('post', compact('post'))
-                @endcomponent
+                <x-post :post="$post" />
             </div>
         @endforeach
     </div>
-@endsection
+</x-layout.page>

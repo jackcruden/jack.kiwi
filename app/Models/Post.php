@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'embed_url', 'image', 'content', 'is_original', 'published_at'];
+    protected $fillable = ['title', 'slug', 'embed_url', 'content', 'published_at'];
 
     protected $appends = ['link'];
 

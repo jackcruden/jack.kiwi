@@ -12,9 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Blade::directive('active', function ($expression) {
-            return "<?php echo request()->is($expression) ? 'active' : ''; ?>";
-        });
+        //
     }
 
     /**
@@ -22,5 +20,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        //
     }
 }

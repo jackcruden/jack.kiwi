@@ -18,13 +18,13 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show a form to create the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -57,7 +57,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('posts.edit', ['post' => $post]);
     }
 
     /**

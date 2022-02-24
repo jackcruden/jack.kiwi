@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/*body {*/
-/*    font-family: 'Avenir', sans-serif;*/
-/*    font-weight: 300;*/
-/*    background-color: #fbf7f0;*/
-/*}*/
+body {
+    font-family: 'Avenir', sans-serif;
+    font-weight: 300;
+    background-color: #fbf7f0;
+}
 
 /*h1, h2, h3, h4, h5, h6 {*/
 /*    font-weight: bold;*/
@@ -55,20 +55,6 @@
 /*    @apply .text-green .no-underline;*/
 /*    &:hover {*/
 /*        @apply .text-green-dark;*/
-/*    }*/
-/*}*/
-
-/*.x-navigation {*/
-/*    @apply .list-reset .block .justify-end .items-center .overflow-x-auto .overflow-y-visible .whitespace-no-wrap;*/
-
-/*    & > li {*/
-/*        @apply .inline-block .my-0 .leading-normal .text-base;*/
-/*    }*/
-/*    & > li > a {*/
-/*        @apply .block .border-b-4 .border-transparent .py-4 .px-4 .text-center .flex-1 .text-green-dark;*/
-/*    }*/
-/*    & > li > a.active {*/
-/*        @apply .border-b-4 .border-green;*/
 /*    }*/
 /*}*/
 

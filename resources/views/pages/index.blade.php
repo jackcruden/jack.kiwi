@@ -13,7 +13,7 @@
 
     <div class="flex flex-wrap container mx-auto">
         <div class="w-full lg:max-w-sm self-center p-4">
-            <div class="text-xl md:text-3xl">
+            <div class="text-xl md:text-6xl font-extrabold">
                 <h1>Hi, I'm Jack.</h1>
             </div>
 
@@ -22,9 +22,9 @@
             </p>
 
             <div class="lg:text-xl mt-4">
-                <ul class="list-reset">
+                <ul class="list-reset -m-2">
                     @foreach(App\Models\Tag::visible()->get() as $tag)
-                        <li class="inline-block p-2 px-3 rounded-full bg-green hover:shadow">
+                        <li class="inline-block m-2 p-1 px-3 rounded-full bg-green-500 hover:shadow-lg">
                             <a href="/tags/{{ $tag->slug }}" class="text-white font-medium hover:text-white">
                                 {{ $tag->name }}
                             </a>
@@ -35,41 +35,38 @@
         </div>
 
         <div class="flex-1 lg:overflow-y-scroll px-3">
-            <div class="my-4">
-                <h1 class="mb-3">Projects</h1>
-
-                <div class="flex flex-wrap -m-2">
+            <x-home.section heading="Projects">
+                <x-cards>
                     @foreach (App\Models\Post::project()->published()->get() as $project)
-                        <div class="w-full md:w-1/2 xl:w-1/3">
-                            <x-project :project="$project" />
-                        </div>
+                        <x-card
+                            :title="$project->title"
+                            :date="$project->published_at_human"
+                            :url="$project->url"
+                            :image="$project->image"
+                        >
+
+                        </x-card>
                     @endforeach
-                </div>
-            </div>
+                </x-cards>
+            </x-home.section>
 
-            <div class="my-4">
-                <h1 class="mb-3">Sketches</h1>
+            <x-home.section heading="Sketches">
+                @foreach(App\Models\Post::sketch()->published()->get() as $sketch)
+                    <div class="w-1/2 sm:w-1/4 lg:w-1/3 xl:w-1/4">
+                        <x-sketch :sketch="$sketch" />
+                    </div>
+                @endforeach
+            </x-home.section>
 
-                <div class="flex flex-wrap -m-2">
-                    @foreach(App\Models\Post::sketch()->published()->get() as $sketch)
-                        <div class="w-1/2 sm:w-1/4 lg:w-1/3 xl:w-1/4">
-                            <x-sketch :sketch="$sketch" />
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-
-            <div>
-                <h1 class="mb-3">Blog</h1>
-
-                <div class="flex flex-wrap -m-2">
+            <x-home.section heading="Blog">
+                <x-cards>
                     @foreach(App\Models\Post::blog()->published()->get() as $post)
                         <div class="w-full">
                             <x-post :post="$post" />
                         </div>
                     @endforeach
-                </div>
-            </div>
+                </x-cards>
+            </x-home.section>
         </div>
     </div>
 </x-layout>

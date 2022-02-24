@@ -1,26 +1,20 @@
-@php
-    if (request()->post) {
-        $post = request()->post;
-    }
-@endphp
+<x-layout.page :title="$post->title">
+    <x-slot:head>
+        <meta property="og:url" content="{{ $post->link }}"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="{{ $post->title }}"/>
+        <meta property="og:description" content="{!! strip_tags($post->snippet) !!}"/>
+        @if ($post->image)
+            <meta property="og:image" content="{{ config('app.url').'/storage/'.$post->image }}"/>
+        @else
+            <meta property="og:image" content="{{ config('app.url').'/images/kiwifruit_white.png' }}"/>
+        @endif
+    </x-slot:head>
 
-@extends('layouts.app')
+    <x-slot:action>
+        <x-button href="{{ route('posts.edit', $post) }}">Edit Post</x-button>
+    </x-slot:action>
 
-@section('head')
-    <meta property="og:url"         content="{{ $post->link }}" />
-    <meta property="og:type"        content="article" />
-    <meta property="og:title"       content="{{ $post->title }}" />
-    <meta property="og:description" content="{!! strip_tags($post->snippet) !!}" />
-    @if ($post->image)
-        <meta property="og:image" content="{{ config('app.url').'/storage/'.$post->image }}" />
-    @else
-        <meta property="og:image" content="{{ config('app.url').'/images/kiwifruit_white.png' }}" />
-    @endif
-@endsection
-
-@section('title', $post->title)
-
-@section('content')
     <div class="bg-white shadow rounded-lg">
         @if ($post->embed_url)
             <div class="block text-center rounded-t-lg overflow-hidden">
@@ -33,7 +27,7 @@
         @endif
 
         <div class="p-6">
-            <h1 class="my-0">
+            <div class="text-3xl my-0">
                 @if ($post->published_at)
                     <a href="{{ $post->link }}">
                         {{ $post->title }}
@@ -41,7 +35,7 @@
                 @else
                     {{ $post->title }}
                 @endif
-            </h1>
+            </div>
 
             @if ($post->published_at)
                 <p class="text-grey-dark">
@@ -103,4 +97,4 @@
             </div>
         </form>
     </div>
-@endsection
+</x-layout.page>
