@@ -47,7 +47,7 @@
 
             @if ($post->tags)
                 <ul class="list-reset">
-                    @foreach($post->tags()->visible()->get() as $tag)
+                    @foreach($post->tags as $tag)
                         <li class="x-tag">
                             <a href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a>
                         </li>

@@ -16,7 +16,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
 
     <!-- SimpleMDE -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
@@ -51,10 +51,10 @@
             <nav class="flex-1 text-center sm:text-right justify-end items-center overflow-y-visible overflow-x-hidden">
                 <ul class="list-reset block justify-end items-center overflow-x-auto overflow-y-visible whitespace-no-wrap">
                     <x-menu.item label="Home" :url="route('home')" :active="request()->is('/')" />
-                    <x-menu.item label="Projects" :url="route('projects')" :active="request()->is('projects*')" />
-                    <x-menu.item label="Sketches" :url="route('sketches')" :active="request()->is('sketches*')" />
-                    <x-menu.item label="Blog" :url="route('blog')" :active="request()->is('blog*')" />
-                    <x-menu.item label="Me" :url="route('me')" :active="request()->is('me*')" />
+                    <x-menu.item label="Projects" :url="route('projects.index')" :active="request()->is('projects*')" />
+                    <x-menu.item label="Sketches" :url="route('sketches.index')" :active="request()->is('sketches*')" />
+                    <x-menu.item label="Blog" :url="route('blog.index')" :active="request()->is('blog*')" />
+                    <x-menu.item label="Me" :url="route('home')" :active="request()->is('me*')" />
                 </ul>
             </nav>
         </div>
@@ -88,6 +88,6 @@
     <!-- SimpleMDE -->
     <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
 
-    <script src="{{ asset('/js/app.js') }}"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
 </body>
 </html>

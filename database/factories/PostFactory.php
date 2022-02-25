@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\PostType;
 use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -18,30 +19,50 @@ class PostFactory extends Factory
      */
     public function definition()
     {
+        $title = $this->faker->sentence(rand(3, 10));
+
         return [
-            'title' => $this->faker->sentence,
-            'slug' => $this->faker->slug,
-            'embed_url' => null,
-            'image' => null,
+            'type' => PostType::Blog,
+            'title' => $title,
+            'slug' => str($title)->slug(),
+            'embed_url' => 'https://unsplash.it/1000/500?random',
             'content' => $this->faker->paragraph,
-            'is_original' => true,
-            'published_at' => Carbon::now()->subMinute(),
+            'published_at' => now()->subMinute(),
         ];
     }
 
     public function blog()
     {
-        return $this->has(Tag::factory([
-            'name' => 'Blog',
-            'slug' => 'blog',
-        ]));
+        return $this->state(function () {
+            return [
+                'type' => PostType::Blog,
+            ];
+        });
     }
 
     public function project()
     {
-        return $this->has(Tag::factory([
-            'name' => 'Project',
-            'slug' => 'project',
-        ]));
+        return $this->state(function () {
+            $title = $this->faker->sentence(rand(1, 2));
+
+            return [
+                'type' => PostType::Project,
+                'title' => $title,
+                'slug' => str($title)->slug(),
+            ];
+        });
+    }
+
+    public function sketch()
+    {
+        return $this->state(function () {
+            $title = $this->faker->sentence(rand(1, 2));
+
+            return [
+                'type' => PostType::Sketch,
+                'title' => $title,
+                'slug' => str($title)->slug(),
+            ];
+        });
     }
 }

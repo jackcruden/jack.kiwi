@@ -5,17 +5,16 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Post extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'slug', 'embed_url', 'content', 'published_at'];
-
-    protected $appends = ['link'];
+    protected $fillable = ['type', 'title', 'slug', 'embed_url', 'content', 'published_at'];
 
     protected $casts = [
-        'published_at' => 'datetime',
+        'type' => PostType::class,
     ];
 
     public function getRouteKeyName(): string
@@ -23,54 +22,68 @@ class Post extends Model
         return 'slug';
     }
 
-    public function tags()
+    public function tags(): BelongsToMany
     {
         return $this->belongsToMany(Tag::class);
     }
 
     public function scopePublished($query)
     {
-        return $query->where('published_at', '<=', new Carbon())
+        return $query->where('published_at', '<=', now())
             ->orderBy('published_at', 'desc');
     }
 
     public function scopeProject($query)
     {
-        return $query->whereHas('tags', function ($query) {
-            return $query->whereSlug('project');
-        });
+        return $query->whereType(PostType::Project);
     }
 
     public function scopeSketch($query)
     {
-        return $query->whereHas('tags', function ($query) {
-            return $query->whereSlug('sketch');
-        });
+        return $query->whereType(PostType::Sketch);
     }
 
     public function scopeBlog($query)
     {
-        return $query->whereHas('tags', function ($query) {
-            return $query->whereSlug('blog');
-        });
+        return $query->whereType(PostType::Blog);
     }
 
-    public function getMinutesToReadAttribute()
+    /**
+     * Number of minutes it will take to read.
+     *
+     * @return int
+     */
+    public function getMinutesToReadAttribute(): int
     {
         return max(round(str_word_count($this->content) / 200), 1);
     }
 
-    public function getRenderedAttribute()
+    /**
+     * Markdown rendered to HTML.
+     *
+     * @return string
+     */
+    public function getRenderedAttribute(): string
     {
         return (new \Parsedown())->text($this->content);
     }
 
-    public function getPublishedAtHumanAttribute()
+    /**
+     * The date the post was published.
+     *
+     * @return string
+     */
+    public function getPublishedAtHumanAttribute(): string
     {
         return (new Carbon($this->published_at))->format('jS F, Y');
     }
 
-    public function getSnippetAttribute()
+    /**
+     * A snippet of the post.
+     *
+     * @return string
+     */
+    public function getSnippetAttribute(): string
     {
         if (strlen($this->content) >= 200) {
             return substr($this->content, 0, 200).'...';
@@ -79,16 +92,18 @@ class Post extends Model
         }
     }
 
-    public function getLinkAttribute()
+    /**
+     * The link to the post.
+     *
+     * @return string
+     */
+    public function getLinkAttribute(): string
     {
-        $type = 'blog';
-        if ($this->tags()->whereSlug('project')->count()) {
-            $type = 'projects';
-        } elseif ($this->tags()->whereSlug('sketch')->count()) {
-            $type = 'sketches';
-        }
-
-        return config('app.url').'/'.$type.'/'.$this->slug;
+        return match ($this->type) {
+            PostType::Project => route('projects.show', $this->slug),
+            PostType::Sketch => route('sketches.show', $this->slug),
+            PostType::Blog => route('blog.show', $this->slug),
+        };
     }
 
     public function getImageThumbnailAttribute()

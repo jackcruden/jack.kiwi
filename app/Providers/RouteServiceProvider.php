@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\Post;
+use App\Models\PostType;
 use App\Project;
 use App\Models\Tag;
 use Illuminate\Cache\RateLimiting\Limit;
@@ -40,16 +41,20 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/api.php'));
         });
 
-        Route::bind('post', function ($slug) {
-            return Post::where('slug', $slug)->firstOrFail();
-        });
-
-        Route::bind('tag', function ($slug) {
-            return Tag::where('slug', $slug)->firstOrFail();
+        Route::bind('blog', function ($slug) {
+            return Post::whereType(PostType::Blog)->whereSlug($slug)->firstOrFail();
         });
 
         Route::bind('project', function ($slug) {
-            return Post::where('slug', $slug)->firstOrFail();
+            return Post::whereType(PostType::Project)->whereSlug($slug)->firstOrFail();
+        });
+
+        Route::bind('sketch', function ($slug) {
+            return Post::whereType(PostType::Sketch)->whereSlug($slug)->firstOrFail();
+        });
+
+        Route::bind('tag', function ($slug) {
+            return Tag::whereSlug($slug)->firstOrFail();
         });
     }
 

@@ -23,7 +23,7 @@
 
             <div class="lg:text-xl mt-4">
                 <ul class="list-reset -m-2">
-                    @foreach(App\Models\Tag::visible()->get() as $tag)
+                    @foreach(App\Models\Tag::all() as $tag)
                         <li class="inline-block m-2 p-1 px-3 rounded-full bg-green-500 hover:shadow-lg">
                             <a href="/tags/{{ $tag->slug }}" class="text-white font-medium hover:text-white">
                                 {{ $tag->name }}
@@ -34,38 +34,29 @@
             </div>
         </div>
 
-        <div class="flex-1 lg:overflow-y-scroll px-3">
+        <div class="flex-1">
             <x-home.section heading="Projects">
-                <x-cards>
-                    @foreach (App\Models\Post::project()->published()->get() as $project)
-                        <x-card
-                            :title="$project->title"
-                            :date="$project->published_at_human"
-                            :url="$project->url"
-                            :image="$project->image"
-                        >
-
-                        </x-card>
+                <x-card-grid>
+                    @foreach (App\Models\Post::project()->published()->limit(4)->get() as $project)
+                        <x-card.project :project="$project" />
                     @endforeach
-                </x-cards>
+                </x-card-grid>
             </x-home.section>
 
             <x-home.section heading="Sketches">
-                @foreach(App\Models\Post::sketch()->published()->get() as $sketch)
-                    <div class="w-1/2 sm:w-1/4 lg:w-1/3 xl:w-1/4">
-                        <x-sketch :sketch="$sketch" />
-                    </div>
-                @endforeach
+                <x-card-grid>
+                    @foreach(App\Models\Post::sketch()->published()->limit(3)->get() as $sketch)
+                        <x-card.sketch :sketch="$sketch" />
+                    @endforeach
+                </x-card-grid>
             </x-home.section>
 
             <x-home.section heading="Blog">
-                <x-cards>
-                    @foreach(App\Models\Post::blog()->published()->get() as $post)
-                        <div class="w-full">
-                            <x-post :post="$post" />
-                        </div>
+                <x-card-list>
+                    @foreach(App\Models\Post::blog()->published()->limit(5)->get() as $blog)
+                        <x-card.blog :blog="$blog" />
                     @endforeach
-                </x-cards>
+                </x-card-list>
             </x-home.section>
         </div>
     </div>

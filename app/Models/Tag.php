@@ -11,10 +11,6 @@ class Tag extends Model
 
     protected $fillable = ['name', 'slug'];
 
-    protected $casts = [
-        'is_visible' => 'boolean',
-    ];
-
     public function getRouteKeyName(): string
     {
         return 'slug';
@@ -28,10 +24,5 @@ class Tag extends Model
     public static function findBySlug($slug)
     {
         return self::whereSlug($slug)->firstOrFail();
-    }
-
-    public function scopeVisible($query)
-    {
-        return $query->where('is_visible', true);
     }
 }

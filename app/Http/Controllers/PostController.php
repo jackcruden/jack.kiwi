@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\PostType;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +15,17 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $postQuery = Post::query();
+
+        if (request()->routeIs('projects.index')) {
+            $postQuery->whereType(PostType::Project);
+        } elseif (request()->routeIs('sketches.index')) {
+            $postQuery->whereType(PostType::Sketch);
+        }
+
+        $posts = $postQuery->with('tags')->get();
+
+        return view('posts.index', compact('posts'));
     }
 
     /**
