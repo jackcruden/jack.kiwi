@@ -1,4 +1,4 @@
-@props(['title', 'action' => null])
+@props(['title' => null, 'action' => null])
 
 <x-layout title="{{ $title }}">
     <x-slot:head>
@@ -6,15 +6,17 @@
     </x-slot:head>
 
     <div class="container mx-auto">
-        <div class="flex justify-between mb-4">
-            <div class="text-3xl pt-1 font-extrabold">
-                {{ $title }}
-            </div>
+        @if ($title || $action)
+            <div class="flex items-end justify-between mb-4">
+                <div class="text-3xl pt-1 font-extrabold">
+                    {{ $title }}
+                </div>
 
-            <div>
-                {{ $action }}
+                <div>
+                    {{ $action }}
+                </div>
             </div>
-        </div>
+        @endif
 
         <div {{ $attributes->only('class') }}>
             {{ $slot }}

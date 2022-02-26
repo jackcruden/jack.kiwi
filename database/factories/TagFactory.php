@@ -19,16 +19,6 @@ class TagFactory extends Factory
         return [
             'name' => $this->faker->word,
             'slug' => $this->faker->slug,
-            'is_visible' => true,
         ];
-    }
-
-    public function invisible()
-    {
-        return $this->state(function (array $attributes) {
-            return [
-                'is_visible' => false,
-            ];
-        });
     }
 }

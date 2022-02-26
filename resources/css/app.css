@@ -7,3 +7,48 @@ body {
     font-weight: 300;
     background-color: #fbf7f0;
 }
+
+/*@layer components {*/
+/*    .markdown p {*/
+/*        @apply mb-2;*/
+/*    }*/
+
+/*    .markdown h1, .markdown h2, .markdown h3, .markdown h4 {*/
+/*        @apply mt-4 font-extrabold;*/
+/*    }*/
+/*    .markdown h1 {*/
+/*        @apply text-4xl;*/
+/*    }*/
+/*    .markdown h2 {*/
+/*        @apply text-3xl;*/
+/*    }*/
+/*    .markdown h3 {*/
+/*        @apply text-2xl;*/
+/*    }*/
+/*    .markdown h4 {*/
+/*        @apply text-xl;*/
+/*    }*/
+
+/*    .markdown blockquote {*/
+/*        @apply p-4 bg-gray-100 rounded-lg mb-4 border-l-4 border-gray-600;*/
+/*    }*/
+/*    .markdown blockquote p {*/
+/*        @apply mb-0;*/
+/*    }*/
+
+/*    .markdown strong {*/
+/*        @apply font-bold;*/
+/*    }*/
+
+/*    .markdown em {*/
+/*        @apply italic;*/
+/*    }*/
+
+/*    .markdown ul {*/
+/*        @apply ml-5 list-disc;*/
+/*    }*/
+
+/*    .markdown ol {*/
+/*        @apply ml-5 list-decimal;*/
+/*    }*/
+/*}*/

@@ -2,7 +2,7 @@
 
 <li class="inline-block">
     <a href="{{ $url }}" @class([
-        'block py-4 px-4 text-green-600 font-medium',
+        'block py-4 px-4 text-green-600 font-medium border-b-4 border-transparent',
         'border-b-4 border-green-500' => $active,
     ])>
         {{ $label }}

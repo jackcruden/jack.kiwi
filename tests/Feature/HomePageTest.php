@@ -13,18 +13,11 @@ it('can render the home page', function () {
         ]);
 });
 
-it('shows visible tags on the home page', function () {
+it('shows tags on the home page', function () {
     $tag = Tag::factory()->create();
 
     $this->get(route('home'))
         ->assertSee($tag->name);
-});
-
-it('does not show invisible tags on the home page', function () {
-    $tag = Tag::factory()->invisible()->create();
-
-    $this->get(route('home'))
-        ->assertDontSee($tag->name);
 });
 
 it('can show a project on the home page', function () {

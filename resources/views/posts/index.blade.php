@@ -1,7 +1,9 @@
 <x-layout.page title="Sketches">
-    <x-slot:action>
-        <x-button :href="route('posts.create')">Create a Post</x-button>
-    </x-slot:action>
+    @auth
+        <x-slot:action>
+            <x-button :href="route('posts.create')">Create a Post</x-button>
+        </x-slot:action>
+    @endauth
 
     <div>
         @if ($posts->first()->type === App\Models\PostType::Blog)

@@ -27,7 +27,7 @@
 </head>
 <body>
     @auth
-        <div class="bg-green-500 font-medium text-white text-center">
+        <div class="py-4 bg-green-500 font-medium text-white text-center">
             You are logged in as {{ auth()->user()->name }}.
             <form action="{{ route('logout') }}" method="post" class="inline">
                 @csrf
@@ -61,7 +61,7 @@
 
         @if (session('success'))
             <div class="mx-auto max-w-xl text-center">
-                <div class="inline-block mx-auto mb-2 p-2 bg-green text-white text-center rounded-b-lg">
+                <div class="inline-block mx-auto mb-2 p-2 bg-green-500 text-white text-center rounded-b-lg">
                     {{ session('success') }}
                 </div>
             </div>
@@ -69,7 +69,7 @@
 
         @if ($errors->any())
             <div class="mx-auto max-w-xl text-center">
-                <div class="inline-block mx-auto mb-2 p-2 bg-red text-white text-center rounded-b-lg">
+                <div class="inline-block mx-auto p-2 bg-red-500 text-white text-center rounded-b-lg">
                     <ul class="list-reset">
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
