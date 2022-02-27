@@ -16,16 +16,22 @@ class PostController extends Controller
     public function index()
     {
         $postQuery = Post::query();
+        $title = null;
 
         if (request()->routeIs('projects.index')) {
             $postQuery->whereType(PostType::Project);
+            $title = 'Projects';
         } elseif (request()->routeIs('sketches.index')) {
             $postQuery->whereType(PostType::Sketch);
+            $title = 'Sketches';
+        } elseif (request()->routeIs('blog.index')) {
+            $postQuery->whereType(PostType::Blog);
+            $title = 'Blog';
         }
 
         $posts = $postQuery->with('tags')->get();
 
-        return view('posts.index', compact('posts'));
+        return view('posts.index', compact('posts', 'title'));
     }
 
     /**

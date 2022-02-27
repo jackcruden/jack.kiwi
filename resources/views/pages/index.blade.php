@@ -29,7 +29,7 @@
         <div class="flex-1">
             <x-home.section heading="Projects">
                 <x-card-grid>
-                    @foreach (App\Models\Post::project()->published()->limit(4)->get() as $project)
+                    @foreach (App\Models\Post::project()->published()->limit(6)->get() as $project)
                         <x-card.project :project="$project" />
                     @endforeach
                 </x-card-grid>
@@ -37,7 +37,7 @@
 
             <x-home.section heading="Sketches">
                 <x-card-grid>
-                    @foreach(App\Models\Post::sketch()->published()->limit(3)->get() as $sketch)
+                    @foreach(App\Models\Post::sketch()->published()->limit(6)->get() as $sketch)
                         <x-card.sketch :sketch="$sketch" />
                     @endforeach
                 </x-card-grid>
@@ -45,7 +45,7 @@
 
             <x-home.section heading="Blog">
                 <x-card-list>
-                    @foreach(App\Models\Post::blog()->published()->limit(5)->get() as $blog)
+                    @foreach(App\Models\Post::blog()->published()->limit(6)->get() as $blog)
                         <x-card.blog :blog="$blog" />
                     @endforeach
                 </x-card-list>

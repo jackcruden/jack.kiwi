@@ -1,12 +1,16 @@
 @props(['project'])
 
-<x-card class="relative">
-    <img src="{{ $project->cover_thumbnail_url }}" class="w-full">
-
+<x-card
+    class="relative"
+    style="
+        background-image: url('{{ $project->cover_thumbnail_url }}');
+        background-size: cover;
+    ">
     <a
         href="/projects/{{ $project->slug }}"
-        class="block absolute inset-0 overflow-hidden"
+        class="block overflow-hidden"
         style="
+            min-height: 150px;
             background-image: linear-gradient(
                 to bottom,
                 rgba(0, 0, 0, 0.55) 30%,
