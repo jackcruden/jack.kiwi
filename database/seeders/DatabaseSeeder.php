@@ -22,10 +22,13 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('secret'),
         ]);
 
-        Post::factory(100)->blog()->create();
-        Post::factory(100)->project()->create();
-        Post::factory(100)->sketch()->create();
-
         Tag::factory(10)->create();
+        Post::factory(20)->blog()->create();
+        Post::factory(20)->project()->create();
+        Post::factory(20)->sketch()->create();
+
+        Post::all()->each(function ($post) {
+            $post->tags()->attach(Tag::all()->random(rand(2, 5)));
+        });
     }
 }

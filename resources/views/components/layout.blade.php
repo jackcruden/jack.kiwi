@@ -54,7 +54,7 @@
                     <x-menu.item label="Projects" :url="route('projects.index')" :active="request()->is('projects*')" />
                     <x-menu.item label="Sketches" :url="route('sketches.index')" :active="request()->is('sketches*')" />
                     <x-menu.item label="Blog" :url="route('blog.index')" :active="request()->is('blog*')" />
-                    <x-menu.item label="Me" :url="route('home')" :active="request()->is('me*')" />
+{{--                    <x-menu.item label="Me" :url="route('home')" :active="request()->is('me*')" />--}}
                 </ul>
             </nav>
         </div>
@@ -79,7 +79,7 @@
             </div>
         @endif
 
-        <div class="mx-auto px-3 my-6 lg:my-12">
+        <div class="mx-auto px-3 my-4 lg:my-6">
             {{ $slot }}
         </div>
     </div>

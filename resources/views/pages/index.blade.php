@@ -22,15 +22,7 @@
             </p>
 
             <div class="lg:text-xl mt-4">
-                <ul class="list-reset -m-2">
-                    @foreach(App\Models\Tag::all() as $tag)
-                        <li class="inline-block m-2 p-1 px-3 rounded-full bg-green-500 hover:shadow-lg">
-                            <a href="/tags/{{ $tag->slug }}" class="text-white font-medium hover:text-white">
-                                {{ $tag->name }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
+                <x-tags :tags="App\Models\Tag::all()" />
             </div>
         </div>
 

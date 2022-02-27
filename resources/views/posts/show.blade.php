@@ -12,11 +12,20 @@
     </x-slot:head>
 
     <div class="space-y-4">
-        <div class="bg-white shadow rounded-lg">
-            @if ($post->embed_url)
-                <embed id="RefFrame" src="{{ $post->embed_url }}" onload="AdjustIFrame('RefFrame');" style="" />
-            @endif
-        </div>
+        @if ($post->embed_url)
+            <embed
+                src="{{ $post->embed_url }}"
+                class="bg-white mx-auto shadow rounded-lg text-center w-full"
+                style="min-height: 70vh; max-height: 70vh;"
+            />
+        @elseif ($post->getFirstMedia('cover'))
+            <img
+                src="{{ $post->cover_url }}"
+                alt="{{ $post->title }}"
+                class="bg-white mx-auto shadow rounded-lg text-center w-auto"
+                style="max-height: 70vh;"
+            />
+        @endif
 
         <div class="bg-white shadow rounded-lg">
             <div class="p-6">
@@ -49,13 +58,7 @@
                 </div>
 
                 @if ($post->tags)
-                    <ul class="list-reset">
-                        @foreach($post->tags as $tag)
-                            <li class="x-tag">
-                                <a href="/tags/{{ $tag->slug }}">{{ $tag->name }}</a>
-                            </li>
-                        @endforeach
-                    </ul>
+                    <x-tags :tags="$post->tags" />
                 @endif
 
                 <div class="mt-4 prose lg:prose-lg xl:prose-xl">
@@ -66,16 +69,13 @@
 
         @if (App\Models\Tag::whereSlug($post->slug)->first())
             @if (App\Models\Tag::findBySlug($post->slug)->posts()->blog()->published()->count())
-                <h2 class="mt-8 mb-3">More about {{ $post->title }}&hellip;</h2>
-
-                <div class="flex flex-wrap -m-2">
-                    @foreach (App\Models\Tag::findBySlug($post->slug)->posts()->blog()->published()->get() as $post)
-                        <div class="w-full">
-                            @component ('post', compact('post'))
-                            @endcomponent
-                        </div>
-                    @endforeach
-                </div>
+                <x-home.section heading="More about {{ $post->title }}...">
+                    <x-card-grid>
+                        @foreach (App\Models\Tag::findBySlug($post->slug)->posts()->blog()->published()->get() as $post)
+                            <x-card.blog :blog="$post" />
+                        @endforeach
+                    </x-card-grid>
+                </x-home.section>
             @endif
         @endif
 

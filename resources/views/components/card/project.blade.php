@@ -1,14 +1,22 @@
 @props(['project'])
 
-<x-card>
-    <a href="/projects/{{ $project->slug }}" class="x-item overflow-hidden">
-        <div class="p-3">
+<x-card class="relative">
+    <img src="{{ $project->cover_thumbnail_url }}" class="w-full">
+
+    <a
+        href="/projects/{{ $project->slug }}"
+        class="block absolute inset-0 overflow-hidden"
+        style="
+            background-image: linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0.55) 30%,
+                rgba(0, 0, 0, 0.0)
+            );
+        "
+    >
+        <div class="p-3 text-white">
             <span class="font-medium">{{ $project->title }}</span><br>
             <small class="text-grey-dark">{{ $project->published_at_human }}</small>
         </div>
-
-        @if ($project->image)
-            <div class="x-item-image" style="background-image: url('/storage/{{ $project->image_thumbnail }}')"></div>
-        @endif
     </a>
 </x-card>

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Post extends Model implements HasMedia
 {
@@ -108,9 +109,29 @@ class Post extends Model implements HasMedia
         };
     }
 
-    public function getImageThumbnailAttribute()
+    public function registerMediaCollections(): void
     {
-        return preg_replace('/\./', '.thumbnail.', $this->image, 1);
+        $this->addMediaCollection('cover')->singleFile();
+
+        $this->addMediaCollection('images');
+    }
+
+    public function registerMediaConversions(Media $media = null): void
+    {
+        $this->addMediaConversion('thumbnail')
+            ->width(200)
+            ->height(200)
+            ->sharpen(10);
+    }
+
+    public function getCoverUrlAttribute(): ?string
+    {
+        return $this->getFirstMediaUrl('cover');
+    }
+
+    public function getCoverThumbnailUrlAttribute(): ?string
+    {
+        return $this->getFirstMediaUrl('cover', 'thumbnail');
     }
 
     public static function findBySlug($slug)
